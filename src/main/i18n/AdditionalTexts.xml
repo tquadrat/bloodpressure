@@ -1,0 +1,130 @@
+<?xml version="1.0"
+        encoding="UTF-8"?>
+
+<!--
+  ~ ============================================================================
+  ~  Copyright © 2002-2022 by Thomas Thrien.
+  ~  All Rights Reserved.
+  ~ ============================================================================
+  ~  Licensed to the public under the agreements of the GNU Lesser General Public
+  ~  License, version 3.0 (the "License"). You may obtain a copy of the License at
+  ~
+  ~       http://www.gnu.org/licenses/lgpl.html
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  ~  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing permissions and limitations
+  ~  under the License.
+  -->
+<!-- $Id: AdditionalTexts.xml 125 2022-02-18 22:24:52Z tquadrat $ -->
+
+<!DOCTYPE texts SYSTEM "http://dtd.tquadrat.org/AdditionalText.dtd">
+<texts>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_Headline'>
+        <description>The report's headline</description>
+        <translation language="de"><![CDATA[Blutdruck-Statistik]]></translation>
+        <translation language="en"><![CDATA[Blood Pressure Statistics]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_Name'>
+        <description>The caption for the field showing the name and birthdate of the person whose bloodpressure data are shown in the report.</description>
+        <translation language="de"><![CDATA[für]]></translation>
+        <translation language="en"><![CDATA[for]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_FirstDay'>
+        <description>The caption for the field showing the first day covered by the report. Length is important!</description>
+        <translation language="de"><![CDATA[Tag der ersten Messung       ]]></translation>
+        <translation language="en"><![CDATA[Day of first measuring       ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_LastDay'>
+        <description>The caption for the field showing the last day covered by the report. Length is important!</description>
+        <translation language="de"><![CDATA[Tag der letzten Messung      ]]></translation>
+        <translation language="en"><![CDATA[Day of last measuring        ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_TotalCount'>
+        <description>The caption for the field showing the total count of measuring. Length is important!</description>
+        <translation language="de"><![CDATA[Gesamtanzahl der Messungen   ]]></translation>
+        <translation language="en"><![CDATA[Total number of measuring    ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_DayCount'>
+        <description>The caption for the field showing the count of day. Length is important!</description>
+        <translation language="de"><![CDATA[Anzahl Tage mit Messungen    ]]></translation>
+        <translation language="en"><![CDATA[Number of days with measuring]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_TotalDays'>
+        <description>The caption for the field showing the count of day. Length is important!</description>
+        <translation language="de"><![CDATA[Anzahl Tage gesamt           ]]></translation>
+        <translation language="en"><![CDATA[Total number of days         ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_TableHeader'>
+        <description>The header for value table. Length is important!</description>
+        <translation language="de"><![CDATA[Systolisch  Diastolisch  Pulsdruck       Einstufung]]></translation>
+        <translation language="en"><![CDATA[Systolic    Diastolic    Pulse Pressure  Assessment]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_TableHeader1'>
+        <description>The header for the first value table column.</description>
+        <translation language="de"><![CDATA[Systolisch]]></translation>
+        <translation language="en"><![CDATA[Systolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_TableHeader2'>
+        <description>The header for the second value table column.</description>
+        <translation language="de"><![CDATA[Diastolisch]]></translation>
+        <translation language="en"><![CDATA[Diastolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_TableHeader3'>
+        <description>The header for the third value table column.</description>
+        <translation language="de"><![CDATA[Pulsdruck]]></translation>
+        <translation language="en"><![CDATA[Pulse Pressure]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_TableHeader4'>
+        <description>The header for the fourth value table column.</description>
+        <translation language="de"><![CDATA[Einstufung ]]></translation>
+        <translation language="en"><![CDATA[Assessment]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_Average'>
+        <description>The caption for the line showing the averages. Length is important!</description>
+        <translation language="de"><![CDATA[Durchschnitt                 ]]></translation>
+        <translation language="en"><![CDATA[Average                      ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_WeightedAverage'>
+        <description>The caption for the line showing the weighted averages. Length is important!</description>
+        <translation language="de"><![CDATA[Gewichteter Durchschnitt     ]]></translation>
+        <translation language="en"><![CDATA[Weighted Average             ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_Median'>
+        <description>The caption for the line showing the median values. Length is important!</description>
+        <translation language="de"><![CDATA[Median                       ]]></translation>
+        <translation language="en"><![CDATA[Median                       ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_Distribution'>
+        <description>The caption for the distribution table.</description>
+        <translation language="de"><![CDATA[Verteilung auf Normwerte]]></translation>
+        <translation language="en"><![CDATA[Distribution]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_DistributionColumn1'>
+        <description>The caption for first column of the distribution table.</description>
+        <translation language="de"><![CDATA[Systolischer Druck ]]></translation>
+        <translation language="en"><![CDATA[Systolic Pressure  ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.CAPTION_DistributionColumn2'>
+        <description>The caption for second column of the distribution table.</description>
+        <translation language="de"><![CDATA[Diastolischer Druck]]></translation>
+        <translation language="en"><![CDATA[Diastolic Pressure ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_Disclaimer'>
+        <description>The disclaimer regarding the assessments.</description>
+        <translation language="de"><![CDATA[Die Einstufung geschieht auf der Basis der Normalwerttabelle der WHO und\n
+der Hochdruckliga. Sie stellt keine medizinische Diagnose dar, sondern liefert\n
+nur Richtwerte.\n
+Es gibt keine Normwerte für niedrigen Blutdruck, aber niedrige Werte sollten\n
+auch nicht als "Optimal" bezeichnet werden.]]></translation>
+        <translation language="en"><![CDATA[The assessment is based on the table provided by the WHO; it is not a\n
+medical diagnosis.\n
+There is no strict definition for a low blood pressure, but low values should\n
+not be seen as optimal.]]></translation>
+    </text>
+</texts>
+
+<!--
+End of File
+-->

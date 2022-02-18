@@ -1,0 +1,608 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version='1.1'
+     baseProfile='full'
+     width='1902.000'
+     height='1149.000'>
+    <defs>
+        <style><![CDATA[
+            line
+            {
+              stroke: black;
+            }
+            line.separator
+            {
+              stroke:       black;
+              stroke-width: 1;
+            }
+            marker
+            {
+              fill: white;
+            }
+            path
+            {
+              fill:   white;
+              stroke: black;
+            }
+            path.implementation
+            {
+              fill:             none;
+              stroke-dasharray: 5,5;
+              stroke-width:     3;
+            }
+            path.inheritance
+            {
+              fill:         none;
+              stroke-width: 3;
+            }
+            rect
+            {
+              fill:         none;
+              stroke:       black;
+              stroke-width: 2;
+            }
+            rect.externalClass
+            {
+              fill:         #D0D0D0;
+              fill-opacity: 0.8;
+            }
+            rect.focusClass
+            {
+              fill:         #FFFFF9;
+              fill-opacity: 0.8;
+            }
+            rect.otherClass
+            {
+              fill:         #F0E68C;
+              fill-opacity: 0.8;
+            }
+            rect.template
+            {
+              fill:             #FFFFFF;
+              fill-opacity:     1.0;
+              stroke-dasharray: 3,3;
+            }
+            text
+            {
+              font-family: monospace;
+              font-size:   10px;
+              font-weight: bold;
+            }
+            text.abstract
+            {
+              font-style: italic;
+            }
+            text.final
+            {
+              text-decoration: underline;
+            }
+            text.static
+            {
+              font-weight: normal;
+            }
+            text.stereotype
+            {
+              font-size:   8px;
+              font-weight: normal;
+            }
+            ]]></style>
+        <marker id='inheritance'
+                viewBox='0,0,40,40'
+                markerUnits='strokeWidth'
+                refX='40'
+                refY='20'
+                markerWidth='6'
+                markerHeight='6'
+                orient='auto'>
+            <path d='M40,20 l-40,-20 v40 Z'
+                  fill='#ffffff'
+                  stroke='#000000'
+                  stroke-width='3'/>
+        </marker>
+        <marker id='implementation'
+                viewBox='0,0,40,40'
+                markerUnits='strokeWidth'
+                refX='40'
+                refY='20'
+                markerWidth='6'
+                markerHeight='6'
+                orient='auto'>
+            <path d='M40,20 l-40,-20 v40 Z'
+                  fill='#ffffff'
+                  stroke='#000000'
+                  stroke-width='3'/>
+        </marker>
+        <clipPath id='ID000001'>
+            <rect class='focusClass'
+                  height='95.000'
+                  width='376.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.bloodpressure.internal.ConfigurationBase'>
+            <g>
+                <g class='focusClass'
+                   clip-path='url(#ID000001)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='376.000'
+                          height='95.000'
+                          class='focusClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='376.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='173.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Type&#xBB;</text>
+                    <text x='137.000'
+                          y='24.000'
+                          class='abstract'>ConfigurationBase</text>
+                    <line x1='0.000'
+                          y1='45.000'
+                          x2='376.000'
+                          y2='45.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='41.000'/>
+                    <text x='5.000'
+                          y='58.000'># ConfigurationBase()</text>
+                    <text x='5.000'
+                          y='69.000'>+ initData():java.util.Map&lt;java.lang.String,java.lang.Object&gt;</text>
+                    <text x='5.000'
+                          y='80.000'>+ initializeDatabase(connection:java.sql.Connection):void</text>
+                    <text x='5.000'
+                          y='91.000'>+ retrieveConnection():java.sql.Connection</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000002'>
+            <rect class='externalClass'
+                  height='172.000'
+                  width='244.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='java.lang.Object'>
+            <g>
+                <g clip-path='url(#ID000002)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='244.000'
+                          height='172.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='17.000'
+                          x2='244.000'
+                          y2='17.000'
+                          class='separator'/>
+                    <text x='104.000'
+                          y='13.000'>Object</text>
+                    <line x1='0.000'
+                          y1='34.000'
+                          x2='244.000'
+                          y2='34.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='30.000'/>
+                    <text x='5.000'
+                          y='47.000'>+ Object()</text>
+                    <text x='5.000'
+                          y='58.000'>+ getClass():java.lang.Class&lt;?&gt;</text>
+                    <text x='5.000'
+                          y='69.000'>+ hashCode():int</text>
+                    <text x='5.000'
+                          y='80.000'>+ equals(arg0:java.lang.Object):boolean</text>
+                    <text x='5.000'
+                          y='91.000'># clone():java.lang.Object</text>
+                    <text x='5.000'
+                          y='102.000'>+ toString():java.lang.String</text>
+                    <text x='5.000'
+                          y='113.000'>+ notify():void</text>
+                    <text x='5.000'
+                          y='124.000'>+ notifyAll():void</text>
+                    <text x='5.000'
+                          y='135.000'>+ wait():void</text>
+                    <text x='5.000'
+                          y='146.000'>+ wait(arg0:long):void</text>
+                    <text x='5.000'
+                          y='157.000'>+ wait(arg0:long,arg1:int):void</text>
+                    <text x='5.000'
+                          y='168.000'># finalize():void</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000003'>
+            <rect class='otherClass'
+                  height='315.000'
+                  width='400.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.bloodpressure.Configuration'>
+            <g>
+                <g clip-path='url(#ID000003)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='400.000'
+                          height='315.000'
+                          class='otherClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='400.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='173.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='161.000'
+                          y='24.000'
+                          class='abstract'>Configuration</text>
+                    <line x1='0.000'
+                          y1='78.000'
+                          x2='400.000'
+                          y2='78.000'
+                          class='separator'/>
+                    <text y='41.000'
+                          class='static final'>+ BASE_BUNDLE_NAME:java.lang.String</text>
+                    <text y='52.000'
+                          class='static final'>+ COLUMN_BLOODPRESSURE_DATA_PRIMARY_KEY:java.lang.String</text>
+                    <text y='63.000'
+                          class='static final'>+ MESSAGE_PREFIX:java.lang.String</text>
+                    <text y='74.000'
+                          class='static final'>+ TABLE_BLOODPRESSURE_DATA:java.lang.String</text>
+                    <text x='5.000'
+                          y='91.000'
+                          class='abstract'>+ getBirthdate():java.time.LocalDate</text>
+                    <text x='5.000'
+                          y='102.000'
+                          class='abstract'>+ getDatabaseName():java.lang.String</text>
+                    <text x='5.000'
+                          y='113.000'
+                          class='abstract'>+ getDatabasePassword():java.lang.String</text>
+                    <text x='5.000'
+                          y='124.000'
+                          class='abstract'>+ getDataFolder():java.nio.file.Path</text>
+                    <text x='5.000'
+                          y='135.000'
+                          class='abstract'>+ getDumpFile():java.util.Optional&lt;java.io.File&gt;</text>
+                    <text x='5.000'
+                          y='146.000'
+                          class='abstract'>+ getEndDate():java.time.LocalDate</text>
+                    <text x='5.000'
+                          y='157.000'
+                          class='abstract'>+ getImportFile():java.util.Optional&lt;java.io.File&gt;</text>
+                    <text x='5.000'
+                          y='168.000'
+                          class='abstract'>+ getImportCharset():java.util.Optional&lt;java.nio.charset.Charset&gt;</text>
+                    <text x='5.000'
+                          y='179.000'
+                          class='abstract'>+ getImportFormat():org.tquadrat.bloodpressure.InputFormat</text>
+                    <text x='5.000'
+                          y='190.000'
+                          class='abstract'>+ getImportSource():java.lang.String</text>
+                    <text x='5.000'
+                          y='201.000'
+                          class='abstract'>+ getImportTimeZone():java.util.Optional&lt;java.time.ZoneId&gt;</text>
+                    <text x='5.000'
+                          y='212.000'
+                          class='abstract static'>+ getInstance():org.tquadrat.bloodpressure.Configuration</text>
+                    <text x='5.000'
+                          y='223.000'
+                          class='abstract'>+ getName():java.lang.String</text>
+                    <text x='5.000'
+                          y='234.000'
+                          class='abstract'>+ getReportFile():java.util.Optional&lt;java.io.File&gt;</text>
+                    <text x='5.000'
+                          y='245.000'
+                          class='abstract'>+ getReportFormat():org.tquadrat.bloodpressure.ReportFormat</text>
+                    <text x='5.000'
+                          y='256.000'
+                          class='abstract'>+ getReportStyle():java.lang.String</text>
+                    <text x='5.000'
+                          y='267.000'
+                          class='abstract'>+ getStartDate():java.time.LocalDate</text>
+                    <text x='5.000'
+                          y='278.000'
+                          class='abstract'>+ getUsername():java.lang.String</text>
+                    <text x='5.000'
+                          y='289.000'
+                          class='abstract'>+ initData():java.util.Map&lt;java.lang.String,java.lang.Object&gt;</text>
+                    <text x='5.000'
+                          y='300.000'
+                          class='abstract'>+ initializeDatabase(connection:java.sql.Connection):void</text>
+                    <text x='5.000'
+                          y='311.000'
+                          class='abstract'>+ retrieveConnection():java.sql.Connection</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000004'>
+            <rect class='externalClass'
+                  height='106.000'
+                  width='442.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.foundation.config.CLIBeanSpec'>
+            <g>
+                <g clip-path='url(#ID000004)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='442.000'
+                          height='106.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='442.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='194.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='188.000'
+                          y='24.000'
+                          class='abstract'>CLIBeanSpec</text>
+                    <line x1='0.000'
+                          y1='56.000'
+                          x2='442.000'
+                          y2='56.000'
+                          class='separator'/>
+                    <text y='41.000'
+                          class='static final'>+ ARG_FILE_ESCAPE:java.lang.String</text>
+                    <text y='52.000'
+                          class='static final'>+ LEAD_IN:java.lang.String</text>
+                    <text x='5.000'
+                          y='69.000'
+                          class='abstract'>+ dumpParamFileTemplate(arg0:java.io.OutputStream):void</text>
+                    <text x='5.000'
+                          y='80.000'
+                          class='abstract'>+ parseCommandLine(arg0:java.lang.String[]):boolean</text>
+                    <text x='5.000'
+                          y='91.000'
+                          class='abstract'>+ printUsage(arg0:java.io.OutputStream,arg1:java.lang.CharSequence):void</text>
+                    <text x='5.000'
+                          y='102.000'
+                          class='abstract'>+ retrieveParseErrorMessage():java.util.Optional&lt;java.lang.String&gt;</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000005'>
+            <rect class='externalClass'
+                  height='172.000'
+                  width='526.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.foundation.config.ConfigBeanSpec'>
+            <g>
+                <g clip-path='url(#ID000005)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='526.000'
+                          height='172.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='526.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='236.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='221.000'
+                          y='24.000'
+                          class='abstract'>ConfigBeanSpec</text>
+                    <line x1='0.000'
+                          y1='45.000'
+                          x2='526.000'
+                          y2='45.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='41.000'/>
+                    <text x='5.000'
+                          y='58.000'
+                          class='abstract'>+ addListener(arg0:org.tquadrat.foundation.config.ConfigurationChangeListener):void</text>
+                    <text x='5.000'
+                          y='69.000'
+                          class='abstract'>+ removeListener(arg0:org.tquadrat.foundation.config.ConfigurationChangeListener):void</text>
+                    <text x='5.000'
+                          y='80.000'
+                          class='abstract'>+ getCharset():java.nio.charset.Charset</text>
+                    <text x='5.000'
+                          y='91.000'
+                          class='abstract'>+ getLocale():java.util.Locale</text>
+                    <text x='5.000'
+                          y='102.000'
+                          class='abstract'>+ getResourceBundle():java.util.Optional&lt;java.util.ResourceBundle&gt;</text>
+                    <text x='5.000'
+                          y='113.000'
+                          class='abstract'>+ getTimezone():java.time.ZoneId</text>
+                    <text x='5.000'
+                          y='124.000'
+                          class='abstract'>+ isDebug():boolean</text>
+                    <text x='5.000'
+                          y='135.000'
+                          class='abstract'>+ isTest():boolean</text>
+                    <text x='5.000'
+                          y='146.000'
+                          class='abstract'>+ setCharset(arg0:java.nio.charset.Charset):void</text>
+                    <text x='5.000'
+                          y='157.000'
+                          class='abstract'>+ setLocale(arg0:java.util.Locale):void</text>
+                    <text x='5.000'
+                          y='168.000'
+                          class='abstract'>+ setTimezone(arg0:java.time.ZoneId):void</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000006'>
+            <rect class='externalClass'
+                  height='117.000'
+                  width='838.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.foundation.config.I18nSupport'>
+            <g>
+                <g clip-path='url(#ID000006)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='838.000'
+                          height='117.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='838.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='392.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='386.000'
+                          y='24.000'
+                          class='abstract'>I18nSupport</text>
+                    <line x1='0.000'
+                          y1='45.000'
+                          x2='838.000'
+                          y2='45.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='41.000'/>
+                    <text x='5.000'
+                          y='58.000'>&#x2A22; getMessage(arg0:java.lang.String,arg1:java.lang.Object&#x2026;):java.lang.String</text>
+                    <text x='5.000'
+                          y='69.000'>&#x2A22; getMessage(arg0:int,arg1:java.lang.Object&#x2026;):java.lang.String</text>
+                    <text x='5.000'
+                          y='80.000'
+                          class='abstract'>+ getMessagePrefix():java.lang.String</text>
+                    <text x='5.000'
+                          y='91.000'>&#x2A22; getString(arg0:E):java.lang.String</text>
+                    <text x='5.000'
+                          y='102.000'>&#x2A22; getText(arg0:java.lang.Class&lt;?&gt;,arg1:org.tquadrat.foundation.i18n.TextUse,arg2:java.lang.String,arg3:java.lang.Object&#x2026;):java.lang.String</text>
+                    <text x='5.000'
+                          y='113.000'>&#x2A22; getText(arg0:java.lang.String,arg1:java.lang.Object&#x2026;):java.lang.String</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000007'>
+            <rect class='externalClass'
+                  height='84.000'
+                  width='472.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.foundation.config.INIBeanSpec'>
+            <g>
+                <g clip-path='url(#ID000007)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='472.000'
+                          height='84.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='472.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='209.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='203.000'
+                          y='24.000'
+                          class='abstract'>INIBeanSpec</text>
+                    <line x1='0.000'
+                          y1='45.000'
+                          x2='472.000'
+                          y2='45.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='41.000'/>
+                    <text x='5.000'
+                          y='58.000'
+                          class='abstract'>+ loadINIFile():void</text>
+                    <text x='5.000'
+                          y='69.000'
+                          class='abstract'>+ obtainINIFile():java.util.Optional&lt;org.tquadrat.foundation.inifile.INIFile&gt;</text>
+                    <text x='5.000'
+                          y='80.000'
+                          class='abstract'>+ updateINIFile():void</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000008'>
+            <rect class='externalClass'
+                  height='172.000'
+                  width='526.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <clipPath id='ID000009'>
+            <rect class='externalClass'
+                  height='172.000'
+                  width='526.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <clipPath id='ID000010'>
+            <rect class='externalClass'
+                  height='172.000'
+                  width='526.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+    </defs>
+    <path class='inheritance'
+          d='M926.000,929.000 c0.000,-717.000,-450.500,0.000,-450.500,-717.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='implementation'
+          d='M976.000,929.000 c0.000,-85.000,-25.000,0.000,-25.000,-85.000 v-15'
+          marker-end='url(#implementation)'/>
+    <path class='inheritance'
+          d='M876.000,514.000 c0.000,-96.000,-630.000,0.000,-630.000,-96.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M976.000,514.000 c0.000,-302.000,465.500,0.000,465.500,-302.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M926.000,514.000 c0.000,-85.000,10.000,0.000,10.000,-85.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M1026.000,514.000 c0.000,-118.000,615.000,0.000,615.000,-118.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M246.000,297.000 c0.000,-85.000,1135.500,0.000,1135.500,-85.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M936.000,297.000 c0.000,-85.000,475.500,0.000,475.500,-85.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M1641.000,297.000 c0.000,-85.000,-169.500,0.000,-169.500,-85.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <use x='353.500'
+         y='25.000'
+         xlink:href='#java.lang.Object'/>
+    <use x='1163.500'
+         y='25.000'
+         xlink:href='#org.tquadrat.foundation.config.ConfigBeanSpec'/>
+    <use x='25.000'
+         y='297.000'
+         xlink:href='#org.tquadrat.foundation.config.CLIBeanSpec'/>
+    <use x='517.000'
+         y='297.000'
+         xlink:href='#org.tquadrat.foundation.config.I18nSupport'/>
+    <use x='1405.000'
+         y='297.000'
+         xlink:href='#org.tquadrat.foundation.config.INIBeanSpec'/>
+    <use x='751.000'
+         y='514.000'
+         xlink:href='#org.tquadrat.bloodpressure.Configuration'/>
+    <use x='763.000'
+         y='929.000'
+         xlink:href='#org.tquadrat.bloodpressure.internal.ConfigurationBase'/>
+</svg>

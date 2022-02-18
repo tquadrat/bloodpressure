@@ -1,0 +1,6 @@
+module:org.tquadrat.bloodpressure
+org.tquadrat.bloodpressure
+org.tquadrat.bloodpressure.importer
+org.tquadrat.bloodpressure.internal
+org.tquadrat.bloodpressure.report
+org.tquadrat.bloodpressure.spi
