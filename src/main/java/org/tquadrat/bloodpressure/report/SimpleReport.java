@@ -60,12 +60,12 @@ import org.tquadrat.foundation.util.Template;
  *  {@link org.tquadrat.bloodpressure.Report}
  *  that provides a very basic report.
  *
- *  @version $Id: SimpleReport.java 125 2022-02-18 22:24:52Z tquadrat $
+ *  @version $Id: SimpleReport.java 126 2022-02-19 21:13:35Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.0.1
  */
-@ClassVersion( sourceVersion = "$Id: SimpleReport.java 125 2022-02-18 22:24:52Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: SimpleReport.java 126 2022-02-19 21:13:35Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public final class SimpleReport extends ReportBase
 {
@@ -203,6 +203,9 @@ public final class SimpleReport extends ReportBase
      *  or
      *  {@link ReportFormat#HTML_EMBEDDED}
      *  format.
+     *
+     *  @param destination  The output file.
+     *  @param contents The map with the report data.
      */
     private final void generateHTMLReport( final File destination, final Map<String,String> contents ) throws IOException
     {
@@ -363,6 +366,9 @@ public final class SimpleReport extends ReportBase
      *  Generates the report in
      *  {@link ReportFormat#TEXT}
      *  format.
+     *
+     *  @param destination  The output file.
+     *  @param contents The map with the report data.
      */
     private final void generateTextReport( final File destination, final Map<String,String> contents ) throws IOException
     {

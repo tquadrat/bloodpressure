@@ -54,14 +54,15 @@ import org.tquadrat.foundation.i18n.Translation;
  *  The configuration bean specification for the Blood Pressure Statistics
  *  application.
  *
- *  @version $Id: Configuration.java 123 2022-02-13 19:33:21Z tquadrat $
+ *  @version $Id: Configuration.java 126 2022-02-19 21:13:35Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.0.1
  */
+@SuppressWarnings( "ClassWithTooManyMethods" )
 @ConfigurationBeanSpecification( baseClass = ConfigurationBase.class, synchronizeAccess = false )
 @INIFileConfig( comment = "Settings for the Blood Pressure Statistics application", mustExist = false, path = "${dataFolder}bloodpressure.ini" )
-@ClassVersion( sourceVersion = "$Id: Configuration.java 123 2022-02-13 19:33:21Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: Configuration.java 126 2022-02-19 21:13:35Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport, INIBeanSpec
 {
@@ -331,6 +332,8 @@ public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport,
 
     /**
      *  Returns the report format.
+     *
+     *  @return The report format.
      */
     @Text(
         description = "The usage text for the --reportFormat option",
@@ -347,6 +350,8 @@ public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport,
 
     /**
      *  Returns the report style.
+     *
+     *  @return The report style.
      */
     @Text(
         description = "The usage text for the --reportStyle option",

@@ -71,12 +71,12 @@ import org.tquadrat.foundation.i18n.TextUse;
 /**
  *  The abstract base class for all reports.
  *
- *  @version $Id: ReportBase.java 123 2022-02-13 19:33:21Z tquadrat $
+ *  @version $Id: ReportBase.java 126 2022-02-19 21:13:35Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.0.1
  */
-@ClassVersion( sourceVersion = "$Id: ReportBase.java 123 2022-02-13 19:33:21Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ReportBase.java 126 2022-02-19 21:13:35Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public non-sealed abstract class ReportBase implements Report
 {
@@ -86,13 +86,13 @@ public non-sealed abstract class ReportBase implements Report
     /**
      *  The type of the destination for the report.
      *
-     *  @version $Id: ReportBase.java 123 2022-02-13 19:33:21Z tquadrat $
+     *  @version $Id: ReportBase.java 126 2022-02-19 21:13:35Z tquadrat $
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @UMLGraph.link
      *  @since 0.0.1
      */
     @SuppressWarnings( "SpellCheckingInspection" )
-    @ClassVersion( sourceVersion = "$Id: ReportBase.java 123 2022-02-13 19:33:21Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: ReportBase.java 126 2022-02-19 21:13:35Z tquadrat $" )
     @API( status = STABLE, since = "0.0.1" )
     public static enum DestinationType
     {
@@ -114,12 +114,12 @@ public non-sealed abstract class ReportBase implements Report
     /**
      *  The record for the distribution data.
      *
-     *  @version $Id: ReportBase.java 123 2022-02-13 19:33:21Z tquadrat $
+     *  @version $Id: ReportBase.java 126 2022-02-19 21:13:35Z tquadrat $
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @UMLGraph.link
      *  @since 0.0.1
      */
-    @ClassVersion( sourceVersion = "$Id: ReportBase.java 123 2022-02-13 19:33:21Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: ReportBase.java 126 2022-02-19 21:13:35Z tquadrat $" )
     @API( status = STABLE, since = "0.0.1" )
     public static final class DistributionNode
     {
@@ -166,7 +166,7 @@ public non-sealed abstract class ReportBase implements Report
             m_DiastolicCount = 0;
             m_SystolicPercent = 0.0;
             m_DiastolicPercent = 0.0;
-        }
+        }   //  DistributionNode()
 
             /*---------*\
         ====** Methods **======================================================
@@ -177,6 +177,7 @@ public non-sealed abstract class ReportBase implements Report
          *  @param  totalCount  The total amount of values.
          *  @return The percentage.
          */
+        @SuppressWarnings( "UnusedReturnValue" )
         public final double calcDiastolicPercentage( final int totalCount )
         {
             m_DiastolicPercent = (double) m_DiastolicCount * 100.0 / (double) totalCount;
@@ -191,6 +192,7 @@ public non-sealed abstract class ReportBase implements Report
          *  @param  totalCount  The total amount of values.
          *  @return The percentage.
          */
+        @SuppressWarnings( "UnusedReturnValue" )
         public final double calcSystolicPercentage( final int totalCount )
         {
             m_SystolicPercent = (double) m_SystolicCount * 100.0 / (double) totalCount;
@@ -204,6 +206,7 @@ public non-sealed abstract class ReportBase implements Report
          *
          *  @return The diagnosis.
          */
+        @SuppressWarnings( "unused" )
         public final Diagnosis getDiagnosis() { return m_Diagnosis; }
 
         /**
@@ -462,6 +465,7 @@ public non-sealed abstract class ReportBase implements Report
      * @return  The path for the destination.
      * @throws IOException  The destination is invalid.
      */
+    @SuppressWarnings( "SameParameterValue" )
     protected final Path checkDestination( final File destination, final DestinationType type ) throws IOException
     {
         Path retValue = requireNonNullArgument( destination, "destination" ).toPath();
@@ -670,6 +674,7 @@ public non-sealed abstract class ReportBase implements Report
      *  @param  usage   The text usage.
      *  @param  id  The id for the text.
      *  @param  args    The optional components for the text.
+     *  @return The requested text.
      */
     protected final String retrieveText( final TextUse usage, final String id, final Object... args )
     {

@@ -32,12 +32,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
 /**
  *  The definition of a report generator.
  *
- *  @version $Id: Report.java 122 2022-02-12 20:09:13Z tquadrat $
+ *  @version $Id: Report.java 126 2022-02-19 21:13:35Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.0.1
  */
-@ClassVersion( sourceVersion = "$Id: Report.java 122 2022-02-12 20:09:13Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: Report.java 126 2022-02-19 21:13:35Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public sealed interface Report
     permits ReportBase
@@ -57,8 +57,8 @@ public sealed interface Report
      *  @param  format  The output format for the report.
      *  @throws IOException A problem was encountered when writing the report
      *      to the destination.
-     *  throws SQLException A problem was encountered when retrieven the data
-     *      from the database.
+     *  @throws SQLException    A problem was encountered when retrieving the
+     *      data from the database.
      */
     public void generateReport( final File destination, final ReportFormat format ) throws IOException, SQLException;
 

@@ -60,13 +60,13 @@ import org.tquadrat.foundation.i18n.Translation;
 /**
  *  The main entry point into the Blood Pressure Statistics Application.
  *
- * @version $Id: Application.java 125 2022-02-18 22:24:52Z tquadrat $
+ * @version $Id: Application.java 126 2022-02-19 21:13:35Z tquadrat $
  * @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  * @UMLGraph.link
  * @since 0.0.1
  */
 @ProgramClass
-@ClassVersion( sourceVersion = "$Id: Application.java 125 2022-02-18 22:24:52Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: Application.java 126 2022-02-19 21:13:35Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public final class Application
 {

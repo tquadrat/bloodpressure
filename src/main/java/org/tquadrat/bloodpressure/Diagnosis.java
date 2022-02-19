@@ -29,12 +29,12 @@ import org.tquadrat.foundation.util.RangeMap;
 /**
  *  The different categories for blood pressure values.
  *
- *  @version $Id: Diagnosis.java 123 2022-02-13 19:33:21Z tquadrat $
+ *  @version $Id: Diagnosis.java 126 2022-02-19 21:13:35Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.0.1
  */
-@ClassVersion( sourceVersion = "$Id: Diagnosis.java 123 2022-02-13 19:33:21Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: Diagnosis.java 126 2022-02-19 21:13:35Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public enum Diagnosis
 {
@@ -226,10 +226,11 @@ public enum Diagnosis
     }   //  assessSystolicPressure()
 
     /**
-     *  Combines the given diagnosis.
+     *  <p>{@summary Combines the given diagnosis.}</p>
      *
      *  @param  systolic    The diagnosis for the systolic pressure.
      *  @param  diastolic   The diagnosis for the diastolic pressure.
+     *  @return The combined diagnosis.
      */
     public static final Diagnosis combineDiagnosis( final Diagnosis systolic, final Diagnosis diastolic )
     {
