@@ -547,7 +547,7 @@ public final class Application
             final var application = new Application();
             final var fakeArgs = new String []
                 {
-                    "--import", "data/export_2022-02-12T2104.csv",
+                    "--import", "data/export_2022-02-19T1708.csv",
                     "--dump", "data/dump.sql",
                     "--report", "data/simple.html",
                     "--reportStyle", "simple",
