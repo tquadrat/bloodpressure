@@ -206,6 +206,7 @@ public final class SimpleReport extends ReportBase
      *
      *  @param destination  The output file.
      *  @param contents The map with the report data.
+     *  @throws IOException An error occurred while writing to the destination.
      */
     private final void generateHTMLReport( final File destination, final Map<String,String> contents ) throws IOException
     {
@@ -369,6 +370,7 @@ public final class SimpleReport extends ReportBase
      *
      *  @param destination  The output file.
      *  @param contents The map with the report data.
+     *  @throws IOException An error occurred while writing to the destination.
      */
     private final void generateTextReport( final File destination, final Map<String,String> contents ) throws IOException
     {

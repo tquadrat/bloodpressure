@@ -547,14 +547,14 @@ public final class Application
             final var application = new Application();
             final var fakeArgs = new String []
                 {
-                    "--import", "data/export_2022-02-19T1708.csv",
+                    "--import", "data/export_2022-03-13T1657.csv",
                     "--dump", "data/dump.sql",
                     "--report", "data/simple.html",
                     "--reportStyle", "simple",
                     "--reportFormat", "HTML",
                     "--reportStart", "2021-10-01",
-                    // "--name", "Thrien, Thomas",
-                    // "--birthdate", "1963-06-26"
+                    "--name", "Thrien, Thomas",
+                    "--birthdate", "1963-06-26"
                 };
             if( application.initialize( fakeArgs ) )
             {
