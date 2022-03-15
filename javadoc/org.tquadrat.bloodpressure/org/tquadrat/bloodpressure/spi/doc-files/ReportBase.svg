@@ -6,7 +6,7 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
      version='1.1'
      baseProfile='full'
-     width='1308.000'
+     width='2142.000'
      height='899.000'>
     <defs>
         <style><![CDATA[
@@ -241,6 +241,84 @@
             </g>
         </symbol>
         <clipPath id='ID000003'>
+            <rect class='otherClass'
+                  height='84.000'
+                  width='664.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.bloodpressure.report.CompareReport'>
+            <g>
+                <g clip-path='url(#ID000003)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='664.000'
+                          height='84.000'
+                          class='otherClass'/>
+                    <line x1='0.000'
+                          y1='17.000'
+                          x2='664.000'
+                          y2='17.000'
+                          class='separator'/>
+                    <text x='293.000'
+                          y='13.000'>CompareReport</text>
+                    <line x1='0.000'
+                          y1='34.000'
+                          x2='664.000'
+                          y2='34.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='30.000'/>
+                    <text x='5.000'
+                          y='47.000'>+ CompareReport()</text>
+                    <text x='5.000'
+                          y='58.000'>- collectQuarterData(contents:java.util.Map&lt;java.lang.String,java.lang.String&gt;,quarter:int):void</text>
+                    <text x='5.000'
+                          y='69.000'>+ generateReport(destination:java.io.File,format:org.tquadrat.bloodpressure.ReportFormat):void</text>
+                    <text x='5.000'
+                          y='80.000'>- generateHTMLReport(destination:java.io.File,contents:java.util.Map&lt;java.lang.String,java.lang.String&gt;):void</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000004'>
+            <rect class='otherClass'
+                  height='73.000'
+                  width='664.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.bloodpressure.report.StandardReport'>
+            <g>
+                <g clip-path='url(#ID000004)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='664.000'
+                          height='73.000'
+                          class='otherClass'/>
+                    <line x1='0.000'
+                          y1='17.000'
+                          x2='664.000'
+                          y2='17.000'
+                          class='separator'/>
+                    <text x='290.000'
+                          y='13.000'>StandardReport</text>
+                    <line x1='0.000'
+                          y1='34.000'
+                          x2='664.000'
+                          y2='34.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='30.000'/>
+                    <text x='5.000'
+                          y='47.000'>+ StandardReport()</text>
+                    <text x='5.000'
+                          y='58.000'>+ generateReport(destination:java.io.File,format:org.tquadrat.bloodpressure.ReportFormat):void</text>
+                    <text x='5.000'
+                          y='69.000'>- generateHTMLReport(destination:java.io.File,contents:java.util.Map&lt;java.lang.String,java.lang.String&gt;):void</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000005'>
             <rect class='externalClass'
                   height='172.000'
                   width='244.000'
@@ -249,7 +327,7 @@
         </clipPath>
         <symbol id='java.lang.Object'>
             <g>
-                <g clip-path='url(#ID000003)'>
+                <g clip-path='url(#ID000005)'>
                     <rect x='0.000'
                           y='0.000'
                           width='244.000'
@@ -296,7 +374,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000004'>
+        <clipPath id='ID000006'>
             <rect class='otherClass'
                   height='95.000'
                   width='856.000'
@@ -305,7 +383,7 @@
         </clipPath>
         <symbol id='org.tquadrat.bloodpressure.Report'>
             <g>
-                <g clip-path='url(#ID000004)'>
+                <g clip-path='url(#ID000006)'>
                     <rect x='0.000'
                           y='0.000'
                           width='856.000'
@@ -346,24 +424,36 @@
         </symbol>
     </defs>
     <path class='inheritance'
-          d='M654.000,690.000 L654.000,590.000'
+          d='M357.000,690.000 c0.000,-85.000,684.000,0.000,684.000,-85.000 v-15'
           marker-end='url(#inheritance)'/>
     <path class='inheritance'
-          d='M629.000,297.000 c0.000,-85.000,-482.000,0.000,-482.000,-85.000 v-15'
+          d='M1071.000,690.000 L1071.000,590.000'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M1785.000,690.000 c0.000,-85.000,-684.000,0.000,-684.000,-85.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M1046.000,297.000 c0.000,-85.000,-510.500,0.000,-510.500,-85.000 v-15'
           marker-end='url(#inheritance)'/>
     <path class='implementation'
-          d='M679.000,297.000 c0.000,-162.000,68.000,0.000,68.000,-162.000 v-15'
+          d='M1096.000,297.000 c0.000,-162.000,510.500,0.000,510.500,-162.000 v-15'
           marker-end='url(#implementation)'/>
-    <use x='25.000'
+    <use x='413.500'
          y='25.000'
          xlink:href='#java.lang.Object'/>
-    <use x='319.000'
+    <use x='1178.500'
          y='25.000'
          xlink:href='#org.tquadrat.bloodpressure.Report'/>
-    <use x='25.000'
+    <use x='442.000'
          y='297.000'
          xlink:href='#org.tquadrat.bloodpressure.spi.ReportBase'/>
-    <use x='322.000'
+    <use x='25.000'
          y='690.000'
          xlink:href='#org.tquadrat.bloodpressure.report.SimpleReport'/>
+    <use x='739.000'
+         y='690.000'
+         xlink:href='#org.tquadrat.bloodpressure.report.CompareReport'/>
+    <use x='1453.000'
+         y='690.000'
+         xlink:href='#org.tquadrat.bloodpressure.report.StandardReport'/>
 </svg>

@@ -50,7 +50,9 @@ import java.time.format.DateTimeFormatterBuilder;
 
 import org.apiguardian.api.API;
 import org.tquadrat.bloodpressure.importer.BlutdruckdatenCSVImporter;
+import org.tquadrat.bloodpressure.report.CompareReport;
 import org.tquadrat.bloodpressure.report.SimpleReport;
+import org.tquadrat.bloodpressure.report.StandardReport;
 import org.tquadrat.foundation.annotation.ClassVersion;
 import org.tquadrat.foundation.annotation.ProgramClass;
 import org.tquadrat.foundation.exception.ApplicationError;
@@ -60,13 +62,13 @@ import org.tquadrat.foundation.i18n.Translation;
 /**
  *  The main entry point into the Blood Pressure Statistics Application.
  *
- * @version $Id: Application.java 126 2022-02-19 21:13:35Z tquadrat $
+ * @version $Id: Application.java 151 2022-03-15 20:39:31Z tquadrat $
  * @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  * @UMLGraph.link
  * @since 0.0.1
  */
 @ProgramClass
-@ClassVersion( sourceVersion = "$Id: Application.java 126 2022-02-19 21:13:35Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: Application.java 151 2022-03-15 20:39:31Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public final class Application
 {
@@ -263,6 +265,8 @@ public final class Application
 
         //---* Creates the reports and adds them to the registry *-------------
         registerReport( new SimpleReport() );
+        registerReport( new StandardReport() );
+        registerReport( new CompareReport() );
     }
 
         /*--------------*\
@@ -492,6 +496,7 @@ public final class Application
                         AND TABLE_SCHEMA = 'PUBLIC'\
                     """, TABLE_BLOODPRESSURE_DATA );
 
+                @SuppressWarnings( "UnusedAssignment" )
                 boolean databaseIsInitialized = false;
                 try( final var sqlStatement = connection.createStatement() )
                 {
@@ -549,8 +554,8 @@ public final class Application
                 {
                     "--import", "data/export_2022-03-13T1657.csv",
                     "--dump", "data/dump.sql",
-                    "--report", "data/simple.html",
-                    "--reportStyle", "simple",
+                    "--report", "data/compare.html",
+                    "--reportStyle", "compare",
                     "--reportFormat", "HTML",
                     "--reportStart", "2021-10-01",
                     "--name", "Thrien, Thomas",

@@ -19,6 +19,7 @@ package org.tquadrat.bloodpressure;
 
 import static org.apiguardian.api.API.Status.STABLE;
 import static org.tquadrat.foundation.config.ConfigUtil.getConfiguration;
+import static org.tquadrat.foundation.config.SpecialPropertyType.CONFIG_PROPERTY_CLOCK;
 import static org.tquadrat.foundation.i18n.TextUse.USAGE;
 import static org.tquadrat.foundation.lang.CommonConstants.PROPERTY_USER_NAME;
 
@@ -27,6 +28,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.Clock;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Map;
@@ -44,6 +46,7 @@ import org.tquadrat.foundation.config.INIBeanSpec;
 import org.tquadrat.foundation.config.INIFileConfig;
 import org.tquadrat.foundation.config.INIValue;
 import org.tquadrat.foundation.config.Option;
+import org.tquadrat.foundation.config.SpecialProperty;
 import org.tquadrat.foundation.config.SystemProperty;
 import org.tquadrat.foundation.i18n.BaseBundleName;
 import org.tquadrat.foundation.i18n.MessagePrefix;
@@ -54,7 +57,7 @@ import org.tquadrat.foundation.i18n.Translation;
  *  The configuration bean specification for the Blood Pressure Statistics
  *  application.
  *
- *  @version $Id: Configuration.java 126 2022-02-19 21:13:35Z tquadrat $
+ *  @version $Id: Configuration.java 151 2022-03-15 20:39:31Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.0.1
@@ -62,7 +65,7 @@ import org.tquadrat.foundation.i18n.Translation;
 @SuppressWarnings( "ClassWithTooManyMethods" )
 @ConfigurationBeanSpecification( baseClass = ConfigurationBase.class, synchronizeAccess = false )
 @INIFileConfig( comment = "Settings for the Blood Pressure Statistics application", mustExist = false, path = "${dataFolder}bloodpressure.ini" )
-@ClassVersion( sourceVersion = "$Id: Configuration.java 126 2022-02-19 21:13:35Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: Configuration.java 151 2022-03-15 20:39:31Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport, INIBeanSpec
 {
@@ -72,6 +75,7 @@ public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport,
     /**
      *  The name of the resource bundle for the texts and messages: {@value}.
      */
+    @SuppressWarnings( "unused" )
     @BaseBundleName( defaultLanguage = "de" )
     public static final String BASE_BUNDLE_NAME = "org.tquadrat.bloodpressure.TextsAndMessages";
 
@@ -85,6 +89,7 @@ public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport,
     /**
      *  The message prefix for messages from this application: {@value}.
      */
+    @SuppressWarnings( "unused" )
     @MessagePrefix
     public static final String MESSAGE_PREFIX = "BPS";
 
@@ -116,6 +121,15 @@ public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport,
     @Option( name = "--birthdate", aliases = { "--birthday"}, metaVar = "DATA", usageKey = "org.tquadrat.bloodpressure.Configuration.USAGE_Birthdate" )
     @INIValue( group = "Owner", key = "birthdate", comment = "The birthdate of the person whose blood pressure data is processed" )
     public LocalDate getBirthdate();
+
+    /**
+     *  <p>{@summary Returns the clock that is used by this program.}</p>
+     *  <p>It can be adjusted for testing purposes.</p>
+     *
+     *  @return The clock.
+     */
+    @SpecialProperty( CONFIG_PROPERTY_CLOCK )
+    public Clock getClock();
 
     /**
      *  Returns the name of the database.
@@ -416,6 +430,15 @@ public interface Configuration extends CLIBeanSpec, ConfigBeanSpec, I18nSupport,
      *      connection.
      */
     public Connection retrieveConnection() throws SQLException;
+
+    /**
+     *  <p>{@summary Sets the clock that should be used for this program.}</p>
+     *  <p>This is used mainly for testing purposes.</p>
+     *
+     *  @param  clock   The clock.
+     */
+    @SuppressWarnings( "unused" )
+    public void setClock( final Clock clock );
 }
 //  interface Configuration
 

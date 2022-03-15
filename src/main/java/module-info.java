@@ -23,6 +23,7 @@ module org.tquadrat.bloodpressure
 {
     requires java.prefs;
     requires java.sql;
+    requires java.desktop;
 
     //---* The Foundation stuff *----------------------------------------------
     requires org.tquadrat.foundation.base;
@@ -43,6 +44,9 @@ module org.tquadrat.bloodpressure
     opens org.tquadrat.bloodpressure to javafx.fxml, javafx.graphics;
     opens org.tquadrat.bloodpressure.internal to javafx.fxml, javafx.graphics;
     opens org.tquadrat.bloodpressure.spi to javafx.fxml, javafx.graphics;
+
+    //---* The XChart stuff *--------------------------------------------------
+    requires org.knowm.xchart;
 }   //  module
 
 /*

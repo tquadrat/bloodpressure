@@ -1,0 +1,852 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version='1.1'
+     baseProfile='full'
+     width='1296.000'
+     height='2626.000'>
+    <defs>
+        <style><![CDATA[
+            line
+            {
+              stroke: black;
+            }
+            line.separator
+            {
+              stroke:       black;
+              stroke-width: 1;
+            }
+            marker
+            {
+              fill: white;
+            }
+            path
+            {
+              fill:   white;
+              stroke: black;
+            }
+            path.implementation
+            {
+              fill:             none;
+              stroke-dasharray: 5,5;
+              stroke-width:     3;
+            }
+            path.inheritance
+            {
+              fill:         none;
+              stroke-width: 3;
+            }
+            rect
+            {
+              fill:         none;
+              stroke:       black;
+              stroke-width: 2;
+            }
+            rect.externalClass
+            {
+              fill:         #D0D0D0;
+              fill-opacity: 0.8;
+            }
+            rect.focusClass
+            {
+              fill:         #FFFFF9;
+              fill-opacity: 0.8;
+            }
+            rect.otherClass
+            {
+              fill:         #F0E68C;
+              fill-opacity: 0.8;
+            }
+            rect.template
+            {
+              fill:             #FFFFFF;
+              fill-opacity:     1.0;
+              stroke-dasharray: 3,3;
+            }
+            text
+            {
+              font-family: monospace;
+              font-size:   10px;
+              font-weight: bold;
+            }
+            text.abstract
+            {
+              font-style: italic;
+            }
+            text.final
+            {
+              text-decoration: underline;
+            }
+            text.static
+            {
+              font-weight: normal;
+            }
+            text.stereotype
+            {
+              font-size:   8px;
+              font-weight: normal;
+            }
+            ]]></style>
+        <marker id='inheritance'
+                viewBox='0,0,40,40'
+                markerUnits='strokeWidth'
+                refX='40'
+                refY='20'
+                markerWidth='6'
+                markerHeight='6'
+                orient='auto'>
+            <path d='M40,20 l-40,-20 v40 Z'
+                  fill='#ffffff'
+                  stroke='#000000'
+                  stroke-width='3'/>
+        </marker>
+        <marker id='implementation'
+                viewBox='0,0,40,40'
+                markerUnits='strokeWidth'
+                refX='40'
+                refY='20'
+                markerWidth='6'
+                markerHeight='6'
+                orient='auto'>
+            <path d='M40,20 l-40,-20 v40 Z'
+                  fill='#ffffff'
+                  stroke='#000000'
+                  stroke-width='3'/>
+        </marker>
+        <clipPath id='ID000001'>
+            <rect class='focusClass'
+                  height='1063.000'
+                  width='406.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.bloodpressure.spi.ChartTheme'>
+            <g>
+                <g class='focusClass'
+                   clip-path='url(#ID000001)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='406.000'
+                          height='1063.000'
+                          class='focusClass'/>
+                    <line x1='0.000'
+                          y1='17.000'
+                          x2='406.000'
+                          y2='17.000'
+                          class='separator'/>
+                    <text x='173.000'
+                          y='13.000'>ChartTheme</text>
+                    <line x1='0.000'
+                          y1='34.000'
+                          x2='406.000'
+                          y2='34.000'
+                          class='separator'/>
+                    <text y='30.000'
+                          class='final'>- m_BaseTheme:org.knowm.xchart.style.theme.XChartTheme</text>
+                    <text x='5.000'
+                          y='47.000'>+ ChartTheme()</text>
+                    <text x='5.000'
+                          y='58.000'>+ getAnnotationLineColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='69.000'>+ getAnnotationLineStroke():java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='80.000'>+ getAnnotationTextFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='91.000'>+ getAnnotationTextFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='102.000'>+ getAnnotationTextPanelBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='113.000'>+ getAnnotationTextPanelBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='124.000'>+ getAnnotationTextPanelFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='135.000'>+ getAnnotationTextPanelFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='146.000'>+ getAnnotationTextPanelPadding():int</text>
+                    <text x='5.000'
+                          y='157.000'>+ getAvailableSpaceFill():double</text>
+                    <text x='5.000'
+                          y='168.000'>+ getAxisTickLabelsColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='179.000'>+ getAxisTickLabelsFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='190.000'>+ getAxisTickMarkLength():int</text>
+                    <text x='5.000'
+                          y='201.000'>+ getAxisTickMarksColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='212.000'>+ getAxisTickMarksStroke():java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='223.000'>+ getAxisTickPadding():int</text>
+                    <text x='5.000'
+                          y='234.000'>+ getAxisTitleFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='245.000'>+ getAxisTitlePadding():int</text>
+                    <text x='5.000'
+                          y='256.000'>+ getBaseFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='267.000'>+ getChartBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='278.000'>+ getChartButtonBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='289.000'>+ getChartButtonBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='300.000'>+ getChartButtonFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='311.000'>+ getChartButtonFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='322.000'>+ getChartButtonHoverColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='333.000'>+ getChartButtonMargin():int</text>
+                    <text x='5.000'
+                          y='344.000'>+ getChartFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='355.000'>+ getChartPadding():int</text>
+                    <text x='5.000'
+                          y='366.000'>+ getChartTitleBoxBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='377.000'>+ getChartTitleBoxBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='388.000'>+ getChartTitleFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='399.000'>+ getChartTitlePadding():int</text>
+                    <text x='5.000'
+                          y='410.000'>+ getCursorBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='421.000'>+ getCursorColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='432.000'>+ getCursorFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='443.000'>+ getCursorFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='454.000'>+ getCursorSize():float</text>
+                    <text x='5.000'
+                          y='465.000'>+ getDonutThickness():double</text>
+                    <text x='5.000'
+                          y='476.000'>+ getErrorBarsColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='487.000'>+ getLabelType():org.knowm.xchart.style.PieStyler.LabelType</text>
+                    <text x='5.000'
+                          y='498.000'>+ getLabelsDistance():double</text>
+                    <text x='5.000'
+                          y='509.000'>+ getLabelsFontColorAutomaticDark():java.awt.Color</text>
+                    <text x='5.000'
+                          y='520.000'>+ getLabelsFontColorAutomaticLight():java.awt.Color</text>
+                    <text x='5.000'
+                          y='531.000'>+ getLegendBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='542.000'>+ getLegendBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='553.000'>+ getLegendFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='564.000'>+ getLegendPadding():int</text>
+                    <text x='5.000'
+                          y='575.000'>+ getLegendPosition():org.knowm.xchart.style.Styler.LegendPosition</text>
+                    <text x='5.000'
+                          y='586.000'>+ getLegendSeriesLineLength():int</text>
+                    <text x='5.000'
+                          y='597.000'>+ getMarkerSize():int</text>
+                    <text x='5.000'
+                          y='608.000'>+ getPieFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='619.000'>+ getPlotBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='630.000'>+ getPlotBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='641.000'>+ getPlotContentSize():double</text>
+                    <text x='5.000'
+                          y='652.000'>+ getPlotGridLinesColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='663.000'>+ getPlotGridLinesStroke():java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='674.000'>+ getPlotMargin():int</text>
+                    <text x='5.000'
+                          y='685.000'>+ getSeriesColors():java.awt.Color[]</text>
+                    <text x='5.000'
+                          y='696.000'>+ getSeriesLines():java.awt.BasicStroke[]</text>
+                    <text x='5.000'
+                          y='707.000'>+ getSeriesMarkers():org.knowm.xchart.style.markers.Marker[]</text>
+                    <text x='5.000'
+                          y='718.000'>+ getStartAngleInDegrees():double</text>
+                    <text x='5.000'
+                          y='729.000'>+ getSumFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='740.000'>+ getToolTipBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='751.000'>+ getToolTipBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='762.000'>+ getToolTipFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='773.000'>+ getToolTipHighlightColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='784.000'>+ getToolTipType():org.knowm.xchart.style.Styler.ToolTipType</text>
+                    <text x='5.000'
+                          y='795.000'>+ getXAxisTickMarkSpacingHint():int</text>
+                    <text x='5.000'
+                          y='806.000'>+ getYAxisTickMarkSpacingHint():int</text>
+                    <text x='5.000'
+                          y='817.000'>+ isAxisTicksLineVisible():boolean</text>
+                    <text x='5.000'
+                          y='828.000'>+ isAxisTicksMarksVisible():boolean</text>
+                    <text x='5.000'
+                          y='839.000'>+ isChartTitleBoxVisible():boolean</text>
+                    <text x='5.000'
+                          y='850.000'>+ isChartTitleVisible():boolean</text>
+                    <text x='5.000'
+                          y='861.000'>+ isCircular():boolean</text>
+                    <text x='5.000'
+                          y='872.000'>+ isCursorEnabled():boolean</text>
+                    <text x='5.000'
+                          y='883.000'>+ isErrorBarsColorSeriesColor():boolean</text>
+                    <text x='5.000'
+                          y='894.000'>+ isLabelsFontColorAutomaticEnabled():boolean</text>
+                    <text x='5.000'
+                          y='905.000'>+ isLegendVisible():boolean</text>
+                    <text x='5.000'
+                          y='916.000'>+ isOverlapped():boolean</text>
+                    <text x='5.000'
+                          y='927.000'>+ isPlotBorderVisible():boolean</text>
+                    <text x='5.000'
+                          y='938.000'>+ isPlotGridHorizontalLinesVisible():boolean</text>
+                    <text x='5.000'
+                          y='949.000'>+ isPlotGridLinesVisible():boolean</text>
+                    <text x='5.000'
+                          y='960.000'>+ isPlotGridVerticalLinesVisible():boolean</text>
+                    <text x='5.000'
+                          y='971.000'>+ isPlotTicksMarksVisible():boolean</text>
+                    <text x='5.000'
+                          y='982.000'>+ isSumVisible():boolean</text>
+                    <text x='5.000'
+                          y='993.000'>+ isToolTipsEnabled():boolean</text>
+                    <text x='5.000'
+                          y='1004.000'>+ isXAxisTicksVisible():boolean</text>
+                    <text x='5.000'
+                          y='1015.000'>+ isXAxisTitleVisible():boolean</text>
+                    <text x='5.000'
+                          y='1026.000'>+ isYAxisTicksVisible():boolean</text>
+                    <text x='5.000'
+                          y='1037.000'>+ isYAxisTitleVisible():boolean</text>
+                    <text x='5.000'
+                          y='1048.000'>+ isZoomEnabled():boolean</text>
+                    <text x='5.000'
+                          y='1059.000'>+ setForceAllLabelsVisible():boolean</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000002'>
+            <rect class='externalClass'
+                  height='172.000'
+                  width='244.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='java.lang.Object'>
+            <g>
+                <g clip-path='url(#ID000002)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='244.000'
+                          height='172.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='17.000'
+                          x2='244.000'
+                          y2='17.000'
+                          class='separator'/>
+                    <text x='104.000'
+                          y='13.000'>Object</text>
+                    <line x1='0.000'
+                          y1='34.000'
+                          x2='244.000'
+                          y2='34.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='30.000'/>
+                    <text x='5.000'
+                          y='47.000'>+ Object()</text>
+                    <text x='5.000'
+                          y='58.000'>+ getClass():java.lang.Class&lt;?&gt;</text>
+                    <text x='5.000'
+                          y='69.000'>+ hashCode():int</text>
+                    <text x='5.000'
+                          y='80.000'>+ equals(arg0:java.lang.Object):boolean</text>
+                    <text x='5.000'
+                          y='91.000'># clone():java.lang.Object</text>
+                    <text x='5.000'
+                          y='102.000'>+ toString():java.lang.String</text>
+                    <text x='5.000'
+                          y='113.000'>+ notify():void</text>
+                    <text x='5.000'
+                          y='124.000'>+ notifyAll():void</text>
+                    <text x='5.000'
+                          y='135.000'>+ wait():void</text>
+                    <text x='5.000'
+                          y='146.000'>+ wait(arg0:long):void</text>
+                    <text x='5.000'
+                          y='157.000'>+ wait(arg0:long,arg1:int):void</text>
+                    <text x='5.000'
+                          y='168.000'># finalize():void</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000003'>
+            <rect class='externalClass'
+                  height='1041.000'
+                  width='406.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.knowm.xchart.style.theme.Theme'>
+            <g>
+                <g clip-path='url(#ID000003)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='406.000'
+                          height='1041.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='406.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='176.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='188.000'
+                          y='24.000'
+                          class='abstract'>Theme</text>
+                    <line x1='0.000'
+                          y1='56.000'
+                          x2='406.000'
+                          y2='56.000'
+                          class='separator'/>
+                    <text y='41.000'
+                          class='static final'>+ BASE_FONT:java.awt.Font</text>
+                    <text y='52.000'
+                          class='static final'>+ BASE_STROKE:java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='69.000'
+                          class='abstract'>+ getBaseFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='80.000'
+                          class='abstract'>+ getChartBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='91.000'
+                          class='abstract'>+ getChartFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='102.000'
+                          class='abstract'>+ getChartPadding():int</text>
+                    <text x='5.000'
+                          y='113.000'
+                          class='abstract'>+ getChartTitleFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='124.000'
+                          class='abstract'>+ isChartTitleVisible():boolean</text>
+                    <text x='5.000'
+                          y='135.000'
+                          class='abstract'>+ isChartTitleBoxVisible():boolean</text>
+                    <text x='5.000'
+                          y='146.000'
+                          class='abstract'>+ getChartTitleBoxBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='157.000'
+                          class='abstract'>+ getChartTitleBoxBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='168.000'
+                          class='abstract'>+ getChartTitlePadding():int</text>
+                    <text x='5.000'
+                          y='179.000'
+                          class='abstract'>+ getLegendFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='190.000'
+                          class='abstract'>+ isLegendVisible():boolean</text>
+                    <text x='5.000'
+                          y='201.000'
+                          class='abstract'>+ getLegendBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='212.000'
+                          class='abstract'>+ getLegendBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='223.000'
+                          class='abstract'>+ getLegendPadding():int</text>
+                    <text x='5.000'
+                          y='234.000'
+                          class='abstract'>+ getLegendSeriesLineLength():int</text>
+                    <text x='5.000'
+                          y='245.000'
+                          class='abstract'>+ getLegendPosition():org.knowm.xchart.style.Styler.LegendPosition</text>
+                    <text x='5.000'
+                          y='256.000'
+                          class='abstract'>+ isPlotGridLinesVisible():boolean</text>
+                    <text x='5.000'
+                          y='267.000'
+                          class='abstract'>+ isPlotGridVerticalLinesVisible():boolean</text>
+                    <text x='5.000'
+                          y='278.000'
+                          class='abstract'>+ isPlotGridHorizontalLinesVisible():boolean</text>
+                    <text x='5.000'
+                          y='289.000'
+                          class='abstract'>+ getPlotBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='300.000'
+                          class='abstract'>+ getPlotBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='311.000'
+                          class='abstract'>+ isPlotBorderVisible():boolean</text>
+                    <text x='5.000'
+                          y='322.000'
+                          class='abstract'>+ getPlotGridLinesColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='333.000'
+                          class='abstract'>+ getPlotGridLinesStroke():java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='344.000'
+                          class='abstract'>+ isPlotTicksMarksVisible():boolean</text>
+                    <text x='5.000'
+                          y='355.000'>&#x2A22; getPlotContentSize():double</text>
+                    <text x='5.000'
+                          y='366.000'
+                          class='abstract'>+ getPlotMargin():int</text>
+                    <text x='5.000'
+                          y='377.000'>&#x2A22; getAnnotationTextPanelFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='388.000'>&#x2A22; getAnnotationTextPanelFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='399.000'>&#x2A22; getAnnotationTextPanelBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='410.000'>&#x2A22; getAnnotationTextPanelBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='421.000'>&#x2A22; getAnnotationTextPanelPadding():int</text>
+                    <text x='5.000'
+                          y='432.000'>&#x2A22; getAnnotationTextFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='443.000'>&#x2A22; getAnnotationTextFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='454.000'>&#x2A22; getAnnotationLineStroke():java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='465.000'>&#x2A22; getAnnotationLineColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='476.000'>&#x2A22; getChartButtonBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='487.000'>&#x2A22; getChartButtonBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='498.000'>&#x2A22; getChartButtonHoverColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='509.000'>&#x2A22; getChartButtonFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='520.000'>&#x2A22; getChartButtonFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='531.000'>&#x2A22; getChartButtonMargin():int</text>
+                    <text x='5.000'
+                          y='542.000'>&#x2A22; isToolTipsEnabled():boolean</text>
+                    <text x='5.000'
+                          y='553.000'>&#x2A22; getToolTipType():org.knowm.xchart.style.Styler.ToolTipType</text>
+                    <text x='5.000'
+                          y='564.000'>&#x2A22; getToolTipFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='575.000'>&#x2A22; getToolTipBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='586.000'>&#x2A22; getToolTipBorderColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='597.000'>&#x2A22; getToolTipHighlightColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='608.000'
+                          class='abstract'>+ isXAxisTitleVisible():boolean</text>
+                    <text x='5.000'
+                          y='619.000'
+                          class='abstract'>+ isYAxisTitleVisible():boolean</text>
+                    <text x='5.000'
+                          y='630.000'
+                          class='abstract'>+ getAxisTitleFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='641.000'
+                          class='abstract'>+ isXAxisTicksVisible():boolean</text>
+                    <text x='5.000'
+                          y='652.000'
+                          class='abstract'>+ isYAxisTicksVisible():boolean</text>
+                    <text x='5.000'
+                          y='663.000'
+                          class='abstract'>+ getAxisTickLabelsFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='674.000'
+                          class='abstract'>+ getAxisTickMarkLength():int</text>
+                    <text x='5.000'
+                          y='685.000'
+                          class='abstract'>+ getAxisTickPadding():int</text>
+                    <text x='5.000'
+                          y='696.000'
+                          class='abstract'>+ getAxisTickMarksColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='707.000'
+                          class='abstract'>+ getAxisTickMarksStroke():java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='718.000'
+                          class='abstract'>+ getAxisTickLabelsColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='729.000'
+                          class='abstract'>+ isAxisTicksLineVisible():boolean</text>
+                    <text x='5.000'
+                          y='740.000'
+                          class='abstract'>+ isAxisTicksMarksVisible():boolean</text>
+                    <text x='5.000'
+                          y='751.000'
+                          class='abstract'>+ getAxisTitlePadding():int</text>
+                    <text x='5.000'
+                          y='762.000'
+                          class='abstract'>+ getXAxisTickMarkSpacingHint():int</text>
+                    <text x='5.000'
+                          y='773.000'
+                          class='abstract'>+ getYAxisTickMarkSpacingHint():int</text>
+                    <text x='5.000'
+                          y='784.000'
+                          class='abstract'>+ isCursorEnabled():boolean</text>
+                    <text x='5.000'
+                          y='795.000'
+                          class='abstract'>+ getCursorColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='806.000'
+                          class='abstract'>+ getCursorSize():float</text>
+                    <text x='5.000'
+                          y='817.000'
+                          class='abstract'>+ getCursorFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='828.000'
+                          class='abstract'>+ getCursorFontColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='839.000'
+                          class='abstract'>+ getCursorBackgroundColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='850.000'>&#x2A22; isZoomEnabled():boolean</text>
+                    <text x='5.000'
+                          y='861.000'
+                          class='abstract'>+ getAvailableSpaceFill():double</text>
+                    <text x='5.000'
+                          y='872.000'
+                          class='abstract'>+ isOverlapped():boolean</text>
+                    <text x='5.000'
+                          y='883.000'
+                          class='abstract'>+ isCircular():boolean</text>
+                    <text x='5.000'
+                          y='894.000'
+                          class='abstract'>+ getStartAngleInDegrees():double</text>
+                    <text x='5.000'
+                          y='905.000'
+                          class='abstract'>+ getPieFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='916.000'
+                          class='abstract'>+ getLabelsDistance():double</text>
+                    <text x='5.000'
+                          y='927.000'
+                          class='abstract'>+ getLabelType():org.knowm.xchart.style.PieStyler.LabelType</text>
+                    <text x='5.000'
+                          y='938.000'
+                          class='abstract'>+ setForceAllLabelsVisible():boolean</text>
+                    <text x='5.000'
+                          y='949.000'
+                          class='abstract'>+ getDonutThickness():double</text>
+                    <text x='5.000'
+                          y='960.000'
+                          class='abstract'>+ isSumVisible():boolean</text>
+                    <text x='5.000'
+                          y='971.000'
+                          class='abstract'>+ getSumFont():java.awt.Font</text>
+                    <text x='5.000'
+                          y='982.000'
+                          class='abstract'>+ getMarkerSize():int</text>
+                    <text x='5.000'
+                          y='993.000'
+                          class='abstract'>+ getErrorBarsColor():java.awt.Color</text>
+                    <text x='5.000'
+                          y='1004.000'
+                          class='abstract'>+ isErrorBarsColorSeriesColor():boolean</text>
+                    <text x='5.000'
+                          y='1015.000'>&#x2A22; getLabelsFontColorAutomaticDark():java.awt.Color</text>
+                    <text x='5.000'
+                          y='1026.000'>&#x2A22; getLabelsFontColorAutomaticLight():java.awt.Color</text>
+                    <text x='5.000'
+                          y='1037.000'>&#x2A22; isLabelsFontColorAutomaticEnabled():boolean</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000004'>
+            <rect class='externalClass'
+                  height='172.000'
+                  width='370.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.knowm.xchart.style.markers.SeriesMarkers'>
+            <g>
+                <g clip-path='url(#ID000004)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='370.000'
+                          height='172.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='370.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='158.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='146.000'
+                          y='24.000'
+                          class='abstract'>SeriesMarkers</text>
+                    <line x1='0.000'
+                          y1='155.000'
+                          x2='370.000'
+                          y2='155.000'
+                          class='separator'/>
+                    <text y='41.000'
+                          class='static final'>+ NONE:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='52.000'
+                          class='static final'>+ CIRCLE:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='63.000'
+                          class='static final'>+ DIAMOND:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='74.000'
+                          class='static final'>+ SQUARE:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='85.000'
+                          class='static final'>+ TRIANGLE_DOWN:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='96.000'
+                          class='static final'>+ TRIANGLE_UP:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='107.000'
+                          class='static final'>+ CROSS:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='118.000'
+                          class='static final'>+ PLUS:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='129.000'
+                          class='static final'>+ TRAPEZOID:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='140.000'
+                          class='static final'>+ OVAL:org.knowm.xchart.style.markers.Marker</text>
+                    <text y='151.000'
+                          class='static final'>+ RECTANGLE:org.knowm.xchart.style.markers.Marker</text>
+                    <text x='5.000'
+                          y='168.000'
+                          class='abstract'>+ getSeriesMarkers():org.knowm.xchart.style.markers.Marker[]</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000005'>
+            <rect class='externalClass'
+                  height='106.000'
+                  width='256.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.knowm.xchart.style.lines.SeriesLines'>
+            <g>
+                <g clip-path='url(#ID000005)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='256.000'
+                          height='106.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='256.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='101.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='95.000'
+                          y='24.000'
+                          class='abstract'>SeriesLines</text>
+                    <line x1='0.000'
+                          y1='89.000'
+                          x2='256.000'
+                          y2='89.000'
+                          class='separator'/>
+                    <text y='41.000'
+                          class='static final'>+ NONE:java.awt.BasicStroke</text>
+                    <text y='52.000'
+                          class='static final'>+ SOLID:java.awt.BasicStroke</text>
+                    <text y='63.000'
+                          class='static final'>+ DASH_DOT:java.awt.BasicStroke</text>
+                    <text y='74.000'
+                          class='static final'>+ DASH_DASH:java.awt.BasicStroke</text>
+                    <text y='85.000'
+                          class='static final'>+ DOT_DOT:java.awt.BasicStroke</text>
+                    <text x='5.000'
+                          y='102.000'
+                          class='abstract'>+ getSeriesLines():java.awt.BasicStroke[]</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000006'>
+            <rect class='externalClass'
+                  height='62.000'
+                  width='226.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.knowm.xchart.style.colors.SeriesColors'>
+            <g>
+                <g clip-path='url(#ID000006)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='226.000'
+                          height='62.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='226.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='86.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='77.000'
+                          y='24.000'
+                          class='abstract'>SeriesColors</text>
+                    <line x1='0.000'
+                          y1='45.000'
+                          x2='226.000'
+                          y2='45.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='41.000'/>
+                    <text x='5.000'
+                          y='58.000'
+                          class='abstract'>+ getSeriesColors():java.awt.Color[]</text>
+                </g>
+            </g>
+        </symbol>
+    </defs>
+    <path class='inheritance'
+          d='M623.000,1438.000 c0.000,-1226.000,-476.000,0.000,-476.000,-1226.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='implementation'
+          d='M673.000,1438.000 c0.000,-85.000,-25.000,0.000,-25.000,-85.000 v-15'
+          marker-end='url(#implementation)'/>
+    <path class='inheritance'
+          d='M598.000,297.000 c0.000,-85.000,-94.000,0.000,-94.000,-85.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M648.000,297.000 c0.000,-151.000,219.000,0.000,219.000,-151.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M698.000,297.000 c0.000,-195.000,460.000,0.000,460.000,-195.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <use x='25.000'
+         y='25.000'
+         xlink:href='#java.lang.Object'/>
+    <use x='319.000'
+         y='25.000'
+         xlink:href='#org.knowm.xchart.style.markers.SeriesMarkers'/>
+    <use x='739.000'
+         y='25.000'
+         xlink:href='#org.knowm.xchart.style.lines.SeriesLines'/>
+    <use x='1045.000'
+         y='25.000'
+         xlink:href='#org.knowm.xchart.style.colors.SeriesColors'/>
+    <use x='445.000'
+         y='297.000'
+         xlink:href='#org.knowm.xchart.style.theme.Theme'/>
+    <use x='445.000'
+         y='1438.000'
+         xlink:href='#org.tquadrat.bloodpressure.spi.ChartTheme'/>
+</svg>

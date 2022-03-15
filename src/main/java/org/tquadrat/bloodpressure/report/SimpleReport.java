@@ -60,31 +60,15 @@ import org.tquadrat.foundation.util.Template;
  *  {@link org.tquadrat.bloodpressure.Report}
  *  that provides a very basic report.
  *
- *  @version $Id: SimpleReport.java 126 2022-02-19 21:13:35Z tquadrat $
+ *  @version $Id: SimpleReport.java 151 2022-03-15 20:39:31Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.0.1
  */
-@ClassVersion( sourceVersion = "$Id: SimpleReport.java 126 2022-02-19 21:13:35Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: SimpleReport.java 151 2022-03-15 20:39:31Z tquadrat $" )
 @API( status = STABLE, since = "0.0.1" )
 public final class SimpleReport extends ReportBase
 {
-        /*---------------*\
-    ====** Inner Classes **====================================================
-        \*---------------*/
-
-        /*-----------*\
-    ====** Constants **========================================================
-        \*-----------*/
-
-        /*------------*\
-    ====** Attributes **=======================================================
-        \*------------*/
-
-        /*------------------------*\
-    ====** Static Initialisations **===========================================
-        \*------------------------*/
-
         /*--------------*\
     ====** Constructors **=====================================================
         \*--------------*/

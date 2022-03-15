@@ -73,362 +73,346 @@
 <span class="source-line-no">060</span><span id="line-60"> *  {@link org.tquadrat.bloodpressure.Report}</span>
 <span class="source-line-no">061</span><span id="line-61"> *  that provides a very basic report.</span>
 <span class="source-line-no">062</span><span id="line-62"> *</span>
-<span class="source-line-no">063</span><span id="line-63"> *  @version $Id: SimpleReport.java 126 2022-02-19 21:13:35Z tquadrat $</span>
+<span class="source-line-no">063</span><span id="line-63"> *  @version $Id: SimpleReport.java 151 2022-03-15 20:39:31Z tquadrat $</span>
 <span class="source-line-no">064</span><span id="line-64"> *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org</span>
 <span class="source-line-no">065</span><span id="line-65"> *  @UMLGraph.link</span>
 <span class="source-line-no">066</span><span id="line-66"> *  @since 0.0.1</span>
 <span class="source-line-no">067</span><span id="line-67"> */</span>
-<span class="source-line-no">068</span><span id="line-68">@ClassVersion( sourceVersion = "$Id: SimpleReport.java 126 2022-02-19 21:13:35Z tquadrat $" )</span>
+<span class="source-line-no">068</span><span id="line-68">@ClassVersion( sourceVersion = "$Id: SimpleReport.java 151 2022-03-15 20:39:31Z tquadrat $" )</span>
 <span class="source-line-no">069</span><span id="line-69">@API( status = STABLE, since = "0.0.1" )</span>
 <span class="source-line-no">070</span><span id="line-70">public final class SimpleReport extends ReportBase</span>
 <span class="source-line-no">071</span><span id="line-71">{</span>
-<span class="source-line-no">072</span><span id="line-72">        /*---------------*\</span>
-<span class="source-line-no">073</span><span id="line-73">    ====** Inner Classes **====================================================</span>
-<span class="source-line-no">074</span><span id="line-74">        \*---------------*/</span>
-<span class="source-line-no">075</span><span id="line-75"></span>
-<span class="source-line-no">076</span><span id="line-76">        /*-----------*\</span>
-<span class="source-line-no">077</span><span id="line-77">    ====** Constants **========================================================</span>
-<span class="source-line-no">078</span><span id="line-78">        \*-----------*/</span>
-<span class="source-line-no">079</span><span id="line-79"></span>
-<span class="source-line-no">080</span><span id="line-80">        /*------------*\</span>
-<span class="source-line-no">081</span><span id="line-81">    ====** Attributes **=======================================================</span>
-<span class="source-line-no">082</span><span id="line-82">        \*------------*/</span>
-<span class="source-line-no">083</span><span id="line-83"></span>
-<span class="source-line-no">084</span><span id="line-84">        /*------------------------*\</span>
-<span class="source-line-no">085</span><span id="line-85">    ====** Static Initialisations **===========================================</span>
-<span class="source-line-no">086</span><span id="line-86">        \*------------------------*/</span>
-<span class="source-line-no">087</span><span id="line-87"></span>
-<span class="source-line-no">088</span><span id="line-88">        /*--------------*\</span>
-<span class="source-line-no">089</span><span id="line-89">    ====** Constructors **=====================================================</span>
-<span class="source-line-no">090</span><span id="line-90">        \*--------------*/</span>
-<span class="source-line-no">091</span><span id="line-91">    /**</span>
-<span class="source-line-no">092</span><span id="line-92">     *  Creates a new instance of {@code SimpleReport}.</span>
-<span class="source-line-no">093</span><span id="line-93">     */</span>
-<span class="source-line-no">094</span><span id="line-94">    public SimpleReport()</span>
-<span class="source-line-no">095</span><span id="line-95">    {</span>
-<span class="source-line-no">096</span><span id="line-96">        super( "SIMPLE", TEXT, HTML, HTML_EMBEDDED );</span>
-<span class="source-line-no">097</span><span id="line-97">    }   //  SimpleReport()</span>
-<span class="source-line-no">098</span><span id="line-98"></span>
-<span class="source-line-no">099</span><span id="line-99">        /*---------*\</span>
-<span class="source-line-no">100</span><span id="line-100">    ====** Methods **==========================================================</span>
-<span class="source-line-no">101</span><span id="line-101">        \*---------*/</span>
-<span class="source-line-no">102</span><span id="line-102">    /**</span>
-<span class="source-line-no">103</span><span id="line-103">     *  {@inheritDoc}</span>
-<span class="source-line-no">104</span><span id="line-104">     */</span>
-<span class="source-line-no">105</span><span id="line-105">    @Override</span>
-<span class="source-line-no">106</span><span id="line-106">    public final void generateReport( final File destination, final ReportFormat format ) throws IOException, SQLException</span>
-<span class="source-line-no">107</span><span id="line-107">    {</span>
-<span class="source-line-no">108</span><span id="line-108">        //---* Get the data *--------------------------------------------------</span>
-<span class="source-line-no">109</span><span id="line-109">        final int numberOfMeasuring;</span>
-<span class="source-line-no">110</span><span id="line-110">        final SortedMap&lt;LocalDate, DataNode&gt; data;</span>
-<span class="source-line-no">111</span><span id="line-111">        final Map&lt;Diagnosis,DistributionNode&gt; distribution;</span>
-<span class="source-line-no">112</span><span id="line-112">        try( final var connection = getConfiguration().retrieveConnection() )</span>
-<span class="source-line-no">113</span><span id="line-113">        {</span>
-<span class="source-line-no">114</span><span id="line-114">            final var totalData = loadData( connection, getConfiguration().getTimezone(), getConfiguration().getStartDate(), getConfiguration().getEndDate() );</span>
-<span class="source-line-no">115</span><span id="line-115">            numberOfMeasuring = totalData.size();</span>
-<span class="source-line-no">116</span><span id="line-116">            data = compressToDay( totalData );</span>
-<span class="source-line-no">117</span><span id="line-117">            distribution = distributeData( totalData );</span>
-<span class="source-line-no">118</span><span id="line-118">        }</span>
-<span class="source-line-no">119</span><span id="line-119"></span>
-<span class="source-line-no">120</span><span id="line-120">        final var firstDay = data.firstKey();</span>
-<span class="source-line-no">121</span><span id="line-121">        final var lastDay = data.lastKey();</span>
-<span class="source-line-no">122</span><span id="line-122">        final var duration = Duration.between( firstDay.atStartOfDay(), lastDay.plusDays( 1 ).atStartOfDay() );</span>
-<span class="source-line-no">123</span><span id="line-123">        final var totalDays = duration.toDays();</span>
-<span class="source-line-no">124</span><span id="line-124">        final var dayCount = data.size();</span>
-<span class="source-line-no">125</span><span id="line-125"></span>
-<span class="source-line-no">126</span><span id="line-126">        final var average = calculateAverage( data );</span>
-<span class="source-line-no">127</span><span id="line-127">        final var weightedAverage = calculateEndWeightedAverage( data );</span>
-<span class="source-line-no">128</span><span id="line-128">        final var median = calculateMedian( data );</span>
-<span class="source-line-no">129</span><span id="line-129"></span>
-<span class="source-line-no">130</span><span id="line-130">        //---* Gather the contents *-------------------------------------------</span>
-<span class="source-line-no">131</span><span id="line-131">        final Map&lt;String,String&gt; contents = new HashMap&lt;&gt;();</span>
-<span class="source-line-no">132</span><span id="line-132">        contents.put( "Language", getConfiguration().getLocale().getLanguage() );</span>
-<span class="source-line-no">133</span><span id="line-133">        contents.put( "Headline", retrieveText( TXT, "Headline" ) );</span>
-<span class="source-line-no">134</span><span id="line-134">        contents.put( "Name", getConfiguration().getName() );</span>
-<span class="source-line-no">135</span><span id="line-135">        contents.put( "Birthdate", getConfiguration().getBirthdate().toString() );</span>
-<span class="source-line-no">136</span><span id="line-136">        contents.put( "NameCaption", retrieveText( CAPTION, "Name" ) );</span>
-<span class="source-line-no">137</span><span id="line-137">        contents.put( "FirstDay", firstDay.toString() );</span>
-<span class="source-line-no">138</span><span id="line-138">        contents.put( "FirstDayCaption", retrieveText( CAPTION, "FirstDay" ) );</span>
-<span class="source-line-no">139</span><span id="line-139">        contents.put( "LastDay", lastDay.toString() );</span>
-<span class="source-line-no">140</span><span id="line-140">        contents.put( "LastDayCaption", retrieveText( CAPTION, "LastDay" ) );</span>
-<span class="source-line-no">141</span><span id="line-141">        contents.put( "TotalDays", format( "% 4d", totalDays ) );</span>
-<span class="source-line-no">142</span><span id="line-142">        contents.put( "TotalDaysCaption", retrieveText( CAPTION, "TotalDays" ) );</span>
-<span class="source-line-no">143</span><span id="line-143">        contents.put( "DayCount", format( "% 4d", dayCount ) );</span>
-<span class="source-line-no">144</span><span id="line-144">        contents.put( "DayCountCaption", retrieveText( CAPTION, "DayCount" ) );</span>
-<span class="source-line-no">145</span><span id="line-145">        contents.put( "TotalCount", format( "% 4d", numberOfMeasuring ) );</span>
-<span class="source-line-no">146</span><span id="line-146">        contents.put( "TotalCountCaption", retrieveText( CAPTION, "TotalCount" ) );</span>
-<span class="source-line-no">147</span><span id="line-147">        contents.put( "TableHeader", retrieveText( TXT, "TableHeader" ) );</span>
-<span class="source-line-no">148</span><span id="line-148">        contents.put( "TableHeader1", retrieveText( TXT, "TableHeader1" ) );</span>
-<span class="source-line-no">149</span><span id="line-149">        contents.put( "TableHeader2", retrieveText( TXT, "TableHeader2" ) );</span>
-<span class="source-line-no">150</span><span id="line-150">        contents.put( "TableHeader3", retrieveText( TXT, "TableHeader3" ) );</span>
-<span class="source-line-no">151</span><span id="line-151">        contents.put( "TableHeader4", retrieveText( TXT, "TableHeader4" ) );</span>
-<span class="source-line-no">152</span><span id="line-152">        contents.put( "AverageCaption", retrieveText( CAPTION, "Average" ) );</span>
-<span class="source-line-no">153</span><span id="line-153">        contents.put( "AverageSystolic", format( "% 3d", average.systolic() ) );</span>
-<span class="source-line-no">154</span><span id="line-154">        contents.put( "AverageDiastolic", format( "% 3d", average.diastolic() ) );</span>
-<span class="source-line-no">155</span><span id="line-155">        contents.put( "AveragePulsePressure", format( "% 3d", average.pulsePressure() ) );</span>
-<span class="source-line-no">156</span><span id="line-156">        contents.put( "AverageAssessment", assessData( average ).toString() );</span>
-<span class="source-line-no">157</span><span id="line-157">        contents.put( "WeightedAverageCaption", retrieveText( CAPTION, "WeightedAverage" ) );</span>
-<span class="source-line-no">158</span><span id="line-158">        contents.put( "WeightedAverageSystolic", format( "% 3d", weightedAverage.systolic() ) );</span>
-<span class="source-line-no">159</span><span id="line-159">        contents.put( "WeightedAverageDiastolic", format( "% 3d", weightedAverage.diastolic() ) );</span>
-<span class="source-line-no">160</span><span id="line-160">        contents.put( "WeightedAveragePulsePressure", format( "% 3d", weightedAverage.pulsePressure() ) );</span>
-<span class="source-line-no">161</span><span id="line-161">        contents.put( "WeightedAverageAssessment", assessData( weightedAverage ).toString() );</span>
-<span class="source-line-no">162</span><span id="line-162">        contents.put( "MedianCaption", retrieveText( CAPTION, "Median" ) );</span>
-<span class="source-line-no">163</span><span id="line-163">        contents.put( "MedianSystolic", format( "% 3d", median.systolic() ) );</span>
-<span class="source-line-no">164</span><span id="line-164">        contents.put( "MedianDiastolic", format( "% 3d", median.diastolic() ) );</span>
-<span class="source-line-no">165</span><span id="line-165">        contents.put( "MedianPulsePressure", format( "% 3d", median.pulsePressure() ) );</span>
-<span class="source-line-no">166</span><span id="line-166">        contents.put( "MedianAssessment", assessData( median ).toString() );</span>
-<span class="source-line-no">167</span><span id="line-167">        contents.put( "DistributionCaption", retrieveText( CAPTION, "Distribution" ) );</span>
-<span class="source-line-no">168</span><span id="line-168">        contents.put( "DistributionColumn1Header", retrieveText( CAPTION, "DistributionColumn1" ) );</span>
-<span class="source-line-no">169</span><span id="line-169">        contents.put( "DistributionColumn2Header", retrieveText( CAPTION, "DistributionColumn2" ) );</span>
-<span class="source-line-no">170</span><span id="line-170">        contents.put( "Disclaimer", retrieveText( TXT, "Disclaimer" ) );</span>
-<span class="source-line-no">171</span><span id="line-171"></span>
-<span class="source-line-no">172</span><span id="line-172">        final var maxLenDiagnosisText = Stream.of( LOW, OPTIMAL, NORMAL, NORMAL_HIGH, HIGH1, HIGH2, HIGH3 )</span>
-<span class="source-line-no">173</span><span id="line-173">            .map( Diagnosis::toString )</span>
-<span class="source-line-no">174</span><span id="line-174">            .mapToInt( String::length )</span>
-<span class="source-line-no">175</span><span id="line-175">            .max()</span>
-<span class="source-line-no">176</span><span id="line-176">            .orElse( 0 );</span>
-<span class="source-line-no">177</span><span id="line-177">        final var diagFormat = format( "%%%ds", maxLenDiagnosisText );</span>
-<span class="source-line-no">178</span><span id="line-178"></span>
-<span class="source-line-no">179</span><span id="line-179">        contents.put( "Diag_Filler", " ".repeat( maxLenDiagnosisText ) );</span>
-<span class="source-line-no">180</span><span id="line-180"></span>
-<span class="source-line-no">181</span><span id="line-181">        for( final var diag : List.of( LOW, OPTIMAL, NORMAL, NORMAL_HIGH, HIGH1, HIGH2, HIGH3 ) )</span>
-<span class="source-line-no">182</span><span id="line-182">        {</span>
-<span class="source-line-no">183</span><span id="line-183">            final var node = distribution.computeIfAbsent( diag, DistributionNode::new );</span>
-<span class="source-line-no">184</span><span id="line-184">            contents.put( format( "Diag_%s", diag.name() ), format( diagFormat, diag.toString() ) );</span>
-<span class="source-line-no">185</span><span id="line-185">            contents.put( format( "Diag_%s_SystolicPercent", diag.name() ), format( "% 5.1f%%", node.getSystolicPercentage() ) );</span>
-<span class="source-line-no">186</span><span id="line-186">            contents.put( format( "Diag_%s_SystolicCount", diag.name() ), format( "% 4d", node.getSystolicCount() ) );</span>
-<span class="source-line-no">187</span><span id="line-187">            contents.put( format( "Diag_%s_DiastolicPercent", diag.name() ), format( "% 5.1f%%", node.getDiastolicPercentage() ) );</span>
-<span class="source-line-no">188</span><span id="line-188">            contents.put( format( "Diag_%s_DiastolicCount", diag.name() ), format( "% 4d", node.getDiastolicCount() ) );</span>
-<span class="source-line-no">189</span><span id="line-189">        }</span>
-<span class="source-line-no">190</span><span id="line-190"></span>
-<span class="source-line-no">191</span><span id="line-191">        //---* Create the output *---------------------------------------------</span>
-<span class="source-line-no">192</span><span id="line-192">        switch( format )</span>
-<span class="source-line-no">193</span><span id="line-193">        {</span>
-<span class="source-line-no">194</span><span id="line-194">            case TEXT -&gt; generateTextReport( destination, contents );</span>
-<span class="source-line-no">195</span><span id="line-195">            case HTML, HTML_EMBEDDED -&gt; generateHTMLReport( destination, contents );</span>
-<span class="source-line-no">196</span><span id="line-196">            default -&gt; throw new UnsupportedEnumError( format );</span>
-<span class="source-line-no">197</span><span id="line-197">        }</span>
-<span class="source-line-no">198</span><span id="line-198">    }   //  generateReport()</span>
-<span class="source-line-no">199</span><span id="line-199"></span>
-<span class="source-line-no">200</span><span id="line-200">    /**</span>
-<span class="source-line-no">201</span><span id="line-201">     *  Generates the report in</span>
-<span class="source-line-no">202</span><span id="line-202">     *  {@link ReportFormat#HTML}</span>
-<span class="source-line-no">203</span><span id="line-203">     *  or</span>
-<span class="source-line-no">204</span><span id="line-204">     *  {@link ReportFormat#HTML_EMBEDDED}</span>
-<span class="source-line-no">205</span><span id="line-205">     *  format.</span>
-<span class="source-line-no">206</span><span id="line-206">     *</span>
-<span class="source-line-no">207</span><span id="line-207">     *  @param destination  The output file.</span>
-<span class="source-line-no">208</span><span id="line-208">     *  @param contents The map with the report data.</span>
-<span class="source-line-no">209</span><span id="line-209">     *  @throws IOException An error occurred while writing to the destination.</span>
-<span class="source-line-no">210</span><span id="line-210">     */</span>
-<span class="source-line-no">211</span><span id="line-211">    private final void generateHTMLReport( final File destination, final Map&lt;String,String&gt; contents ) throws IOException</span>
-<span class="source-line-no">212</span><span id="line-212">    {</span>
-<span class="source-line-no">213</span><span id="line-213">        final var targetFile = checkDestination( destination, DEST_FILE );</span>
-<span class="source-line-no">214</span><span id="line-214">        final var template = new Template(</span>
-<span class="source-line-no">215</span><span id="line-215">            """</span>
-<span class="source-line-no">216</span><span id="line-216">                &lt;!DOCTYPE html&gt;</span>
-<span class="source-line-no">217</span><span id="line-217">                &lt;html lang="${Language}"&gt;</span>
-<span class="source-line-no">218</span><span id="line-218">                  &lt;head&gt;</span>
-<span class="source-line-no">219</span><span id="line-219">                    &lt;meta charset="utf-8"&gt;</span>
-<span class="source-line-no">220</span><span id="line-220">                    &lt;title&gt;${Headline} ${NameCaption} ${Name} (${Birthdate})&lt;/title&gt;</span>
-<span class="source-line-no">221</span><span id="line-221">                  &lt;/head&gt;</span>
-<span class="source-line-no">222</span><span id="line-222">                  &lt;body&gt;</span>
-<span class="source-line-no">223</span><span id="line-223">                  &lt;h1&gt;${Headline}&lt;/h1&gt;</span>
-<span class="source-line-no">224</span><span id="line-224">                  &lt;p&gt;${NameCaption} &lt;b&gt;${Name}&lt;/b&gt; (${Birthdate})&lt;/p&gt;</span>
-<span class="source-line-no">225</span><span id="line-225">                  &lt;hr&gt;</span>
-<span class="source-line-no">226</span><span id="line-226">                  &lt;table&gt;</span>
-<span class="source-line-no">227</span><span id="line-227">                    &lt;tr&gt;</span>
-<span class="source-line-no">228</span><span id="line-228">                      &lt;th&gt;${FirstDayCaption}:&lt;/th&gt;&lt;td&gt;${FirstDay}&lt;/td&gt;</span>
-<span class="source-line-no">229</span><span id="line-229">                    &lt;/tr&gt;</span>
-<span class="source-line-no">230</span><span id="line-230">                    &lt;tr&gt;</span>
-<span class="source-line-no">231</span><span id="line-231">                      &lt;th&gt;${LastDayCaption}:&lt;/th&gt;&lt;td&gt;${LastDay}&lt;/td&gt;</span>
-<span class="source-line-no">232</span><span id="line-232">                    &lt;/tr&gt;</span>
-<span class="source-line-no">233</span><span id="line-233">                  &lt;/table&gt;</span>
-<span class="source-line-no">234</span><span id="line-234">                  &lt;br&gt;</span>
-<span class="source-line-no">235</span><span id="line-235">                  &lt;table&gt;</span>
-<span class="source-line-no">236</span><span id="line-236">                    &lt;tr&gt;</span>
-<span class="source-line-no">237</span><span id="line-237">                      &lt;th&gt;${TotalCountCaption}:&lt;/th&gt;&lt;td align="right"&gt;${TotalCount}&lt;/td&gt;</span>
-<span class="source-line-no">238</span><span id="line-238">                    &lt;/tr&gt;</span>
-<span class="source-line-no">239</span><span id="line-239">                    &lt;tr&gt;</span>
-<span class="source-line-no">240</span><span id="line-240">                      &lt;th&gt;${TotalDaysCaption}:&lt;/th&gt;&lt;td align="right"&gt;${TotalDays}&lt;/td&gt;</span>
-<span class="source-line-no">241</span><span id="line-241">                    &lt;/tr&gt;</span>
-<span class="source-line-no">242</span><span id="line-242">                    &lt;tr&gt;</span>
-<span class="source-line-no">243</span><span id="line-243">                      &lt;th&gt;${DayCountCaption}:&lt;/th&gt;&lt;td align="right"&gt;${DayCount}&lt;/td&gt;</span>
-<span class="source-line-no">244</span><span id="line-244">                    &lt;/tr&gt;</span>
-<span class="source-line-no">245</span><span id="line-245">                  &lt;/table&gt;</span>
-<span class="source-line-no">246</span><span id="line-246">                  &lt;br&gt;</span>
-<span class="source-line-no">247</span><span id="line-247">                  &lt;table border="1"&gt;</span>
-<span class="source-line-no">248</span><span id="line-248">                    &lt;thead&gt;</span>
+<span class="source-line-no">072</span><span id="line-72">        /*--------------*\</span>
+<span class="source-line-no">073</span><span id="line-73">    ====** Constructors **=====================================================</span>
+<span class="source-line-no">074</span><span id="line-74">        \*--------------*/</span>
+<span class="source-line-no">075</span><span id="line-75">    /**</span>
+<span class="source-line-no">076</span><span id="line-76">     *  Creates a new instance of {@code SimpleReport}.</span>
+<span class="source-line-no">077</span><span id="line-77">     */</span>
+<span class="source-line-no">078</span><span id="line-78">    public SimpleReport()</span>
+<span class="source-line-no">079</span><span id="line-79">    {</span>
+<span class="source-line-no">080</span><span id="line-80">        super( "SIMPLE", TEXT, HTML, HTML_EMBEDDED );</span>
+<span class="source-line-no">081</span><span id="line-81">    }   //  SimpleReport()</span>
+<span class="source-line-no">082</span><span id="line-82"></span>
+<span class="source-line-no">083</span><span id="line-83">        /*---------*\</span>
+<span class="source-line-no">084</span><span id="line-84">    ====** Methods **==========================================================</span>
+<span class="source-line-no">085</span><span id="line-85">        \*---------*/</span>
+<span class="source-line-no">086</span><span id="line-86">    /**</span>
+<span class="source-line-no">087</span><span id="line-87">     *  {@inheritDoc}</span>
+<span class="source-line-no">088</span><span id="line-88">     */</span>
+<span class="source-line-no">089</span><span id="line-89">    @Override</span>
+<span class="source-line-no">090</span><span id="line-90">    public final void generateReport( final File destination, final ReportFormat format ) throws IOException, SQLException</span>
+<span class="source-line-no">091</span><span id="line-91">    {</span>
+<span class="source-line-no">092</span><span id="line-92">        //---* Get the data *--------------------------------------------------</span>
+<span class="source-line-no">093</span><span id="line-93">        final int numberOfMeasuring;</span>
+<span class="source-line-no">094</span><span id="line-94">        final SortedMap&lt;LocalDate, DataNode&gt; data;</span>
+<span class="source-line-no">095</span><span id="line-95">        final Map&lt;Diagnosis,DistributionNode&gt; distribution;</span>
+<span class="source-line-no">096</span><span id="line-96">        try( final var connection = getConfiguration().retrieveConnection() )</span>
+<span class="source-line-no">097</span><span id="line-97">        {</span>
+<span class="source-line-no">098</span><span id="line-98">            final var totalData = loadData( connection, getConfiguration().getTimezone(), getConfiguration().getStartDate(), getConfiguration().getEndDate() );</span>
+<span class="source-line-no">099</span><span id="line-99">            numberOfMeasuring = totalData.size();</span>
+<span class="source-line-no">100</span><span id="line-100">            data = compressToDay( totalData );</span>
+<span class="source-line-no">101</span><span id="line-101">            distribution = distributeData( totalData );</span>
+<span class="source-line-no">102</span><span id="line-102">        }</span>
+<span class="source-line-no">103</span><span id="line-103"></span>
+<span class="source-line-no">104</span><span id="line-104">        final var firstDay = data.firstKey();</span>
+<span class="source-line-no">105</span><span id="line-105">        final var lastDay = data.lastKey();</span>
+<span class="source-line-no">106</span><span id="line-106">        final var duration = Duration.between( firstDay.atStartOfDay(), lastDay.plusDays( 1 ).atStartOfDay() );</span>
+<span class="source-line-no">107</span><span id="line-107">        final var totalDays = duration.toDays();</span>
+<span class="source-line-no">108</span><span id="line-108">        final var dayCount = data.size();</span>
+<span class="source-line-no">109</span><span id="line-109"></span>
+<span class="source-line-no">110</span><span id="line-110">        final var average = calculateAverage( data );</span>
+<span class="source-line-no">111</span><span id="line-111">        final var weightedAverage = calculateEndWeightedAverage( data );</span>
+<span class="source-line-no">112</span><span id="line-112">        final var median = calculateMedian( data );</span>
+<span class="source-line-no">113</span><span id="line-113"></span>
+<span class="source-line-no">114</span><span id="line-114">        //---* Gather the contents *-------------------------------------------</span>
+<span class="source-line-no">115</span><span id="line-115">        final Map&lt;String,String&gt; contents = new HashMap&lt;&gt;();</span>
+<span class="source-line-no">116</span><span id="line-116">        contents.put( "Language", getConfiguration().getLocale().getLanguage() );</span>
+<span class="source-line-no">117</span><span id="line-117">        contents.put( "Headline", retrieveText( TXT, "Headline" ) );</span>
+<span class="source-line-no">118</span><span id="line-118">        contents.put( "Name", getConfiguration().getName() );</span>
+<span class="source-line-no">119</span><span id="line-119">        contents.put( "Birthdate", getConfiguration().getBirthdate().toString() );</span>
+<span class="source-line-no">120</span><span id="line-120">        contents.put( "NameCaption", retrieveText( CAPTION, "Name" ) );</span>
+<span class="source-line-no">121</span><span id="line-121">        contents.put( "FirstDay", firstDay.toString() );</span>
+<span class="source-line-no">122</span><span id="line-122">        contents.put( "FirstDayCaption", retrieveText( CAPTION, "FirstDay" ) );</span>
+<span class="source-line-no">123</span><span id="line-123">        contents.put( "LastDay", lastDay.toString() );</span>
+<span class="source-line-no">124</span><span id="line-124">        contents.put( "LastDayCaption", retrieveText( CAPTION, "LastDay" ) );</span>
+<span class="source-line-no">125</span><span id="line-125">        contents.put( "TotalDays", format( "% 4d", totalDays ) );</span>
+<span class="source-line-no">126</span><span id="line-126">        contents.put( "TotalDaysCaption", retrieveText( CAPTION, "TotalDays" ) );</span>
+<span class="source-line-no">127</span><span id="line-127">        contents.put( "DayCount", format( "% 4d", dayCount ) );</span>
+<span class="source-line-no">128</span><span id="line-128">        contents.put( "DayCountCaption", retrieveText( CAPTION, "DayCount" ) );</span>
+<span class="source-line-no">129</span><span id="line-129">        contents.put( "TotalCount", format( "% 4d", numberOfMeasuring ) );</span>
+<span class="source-line-no">130</span><span id="line-130">        contents.put( "TotalCountCaption", retrieveText( CAPTION, "TotalCount" ) );</span>
+<span class="source-line-no">131</span><span id="line-131">        contents.put( "TableHeader", retrieveText( TXT, "TableHeader" ) );</span>
+<span class="source-line-no">132</span><span id="line-132">        contents.put( "TableHeader1", retrieveText( TXT, "TableHeader1" ) );</span>
+<span class="source-line-no">133</span><span id="line-133">        contents.put( "TableHeader2", retrieveText( TXT, "TableHeader2" ) );</span>
+<span class="source-line-no">134</span><span id="line-134">        contents.put( "TableHeader3", retrieveText( TXT, "TableHeader3" ) );</span>
+<span class="source-line-no">135</span><span id="line-135">        contents.put( "TableHeader4", retrieveText( TXT, "TableHeader4" ) );</span>
+<span class="source-line-no">136</span><span id="line-136">        contents.put( "AverageCaption", retrieveText( CAPTION, "Average" ) );</span>
+<span class="source-line-no">137</span><span id="line-137">        contents.put( "AverageSystolic", format( "% 3d", average.systolic() ) );</span>
+<span class="source-line-no">138</span><span id="line-138">        contents.put( "AverageDiastolic", format( "% 3d", average.diastolic() ) );</span>
+<span class="source-line-no">139</span><span id="line-139">        contents.put( "AveragePulsePressure", format( "% 3d", average.pulsePressure() ) );</span>
+<span class="source-line-no">140</span><span id="line-140">        contents.put( "AverageAssessment", assessData( average ).toString() );</span>
+<span class="source-line-no">141</span><span id="line-141">        contents.put( "WeightedAverageCaption", retrieveText( CAPTION, "WeightedAverage" ) );</span>
+<span class="source-line-no">142</span><span id="line-142">        contents.put( "WeightedAverageSystolic", format( "% 3d", weightedAverage.systolic() ) );</span>
+<span class="source-line-no">143</span><span id="line-143">        contents.put( "WeightedAverageDiastolic", format( "% 3d", weightedAverage.diastolic() ) );</span>
+<span class="source-line-no">144</span><span id="line-144">        contents.put( "WeightedAveragePulsePressure", format( "% 3d", weightedAverage.pulsePressure() ) );</span>
+<span class="source-line-no">145</span><span id="line-145">        contents.put( "WeightedAverageAssessment", assessData( weightedAverage ).toString() );</span>
+<span class="source-line-no">146</span><span id="line-146">        contents.put( "MedianCaption", retrieveText( CAPTION, "Median" ) );</span>
+<span class="source-line-no">147</span><span id="line-147">        contents.put( "MedianSystolic", format( "% 3d", median.systolic() ) );</span>
+<span class="source-line-no">148</span><span id="line-148">        contents.put( "MedianDiastolic", format( "% 3d", median.diastolic() ) );</span>
+<span class="source-line-no">149</span><span id="line-149">        contents.put( "MedianPulsePressure", format( "% 3d", median.pulsePressure() ) );</span>
+<span class="source-line-no">150</span><span id="line-150">        contents.put( "MedianAssessment", assessData( median ).toString() );</span>
+<span class="source-line-no">151</span><span id="line-151">        contents.put( "DistributionCaption", retrieveText( CAPTION, "Distribution" ) );</span>
+<span class="source-line-no">152</span><span id="line-152">        contents.put( "DistributionColumn1Header", retrieveText( CAPTION, "DistributionColumn1" ) );</span>
+<span class="source-line-no">153</span><span id="line-153">        contents.put( "DistributionColumn2Header", retrieveText( CAPTION, "DistributionColumn2" ) );</span>
+<span class="source-line-no">154</span><span id="line-154">        contents.put( "Disclaimer", retrieveText( TXT, "Disclaimer" ) );</span>
+<span class="source-line-no">155</span><span id="line-155"></span>
+<span class="source-line-no">156</span><span id="line-156">        final var maxLenDiagnosisText = Stream.of( LOW, OPTIMAL, NORMAL, NORMAL_HIGH, HIGH1, HIGH2, HIGH3 )</span>
+<span class="source-line-no">157</span><span id="line-157">            .map( Diagnosis::toString )</span>
+<span class="source-line-no">158</span><span id="line-158">            .mapToInt( String::length )</span>
+<span class="source-line-no">159</span><span id="line-159">            .max()</span>
+<span class="source-line-no">160</span><span id="line-160">            .orElse( 0 );</span>
+<span class="source-line-no">161</span><span id="line-161">        final var diagFormat = format( "%%%ds", maxLenDiagnosisText );</span>
+<span class="source-line-no">162</span><span id="line-162"></span>
+<span class="source-line-no">163</span><span id="line-163">        contents.put( "Diag_Filler", " ".repeat( maxLenDiagnosisText ) );</span>
+<span class="source-line-no">164</span><span id="line-164"></span>
+<span class="source-line-no">165</span><span id="line-165">        for( final var diag : List.of( LOW, OPTIMAL, NORMAL, NORMAL_HIGH, HIGH1, HIGH2, HIGH3 ) )</span>
+<span class="source-line-no">166</span><span id="line-166">        {</span>
+<span class="source-line-no">167</span><span id="line-167">            final var node = distribution.computeIfAbsent( diag, DistributionNode::new );</span>
+<span class="source-line-no">168</span><span id="line-168">            contents.put( format( "Diag_%s", diag.name() ), format( diagFormat, diag.toString() ) );</span>
+<span class="source-line-no">169</span><span id="line-169">            contents.put( format( "Diag_%s_SystolicPercent", diag.name() ), format( "% 5.1f%%", node.getSystolicPercentage() ) );</span>
+<span class="source-line-no">170</span><span id="line-170">            contents.put( format( "Diag_%s_SystolicCount", diag.name() ), format( "% 4d", node.getSystolicCount() ) );</span>
+<span class="source-line-no">171</span><span id="line-171">            contents.put( format( "Diag_%s_DiastolicPercent", diag.name() ), format( "% 5.1f%%", node.getDiastolicPercentage() ) );</span>
+<span class="source-line-no">172</span><span id="line-172">            contents.put( format( "Diag_%s_DiastolicCount", diag.name() ), format( "% 4d", node.getDiastolicCount() ) );</span>
+<span class="source-line-no">173</span><span id="line-173">        }</span>
+<span class="source-line-no">174</span><span id="line-174"></span>
+<span class="source-line-no">175</span><span id="line-175">        //---* Create the output *---------------------------------------------</span>
+<span class="source-line-no">176</span><span id="line-176">        switch( format )</span>
+<span class="source-line-no">177</span><span id="line-177">        {</span>
+<span class="source-line-no">178</span><span id="line-178">            case TEXT -&gt; generateTextReport( destination, contents );</span>
+<span class="source-line-no">179</span><span id="line-179">            case HTML, HTML_EMBEDDED -&gt; generateHTMLReport( destination, contents );</span>
+<span class="source-line-no">180</span><span id="line-180">            default -&gt; throw new UnsupportedEnumError( format );</span>
+<span class="source-line-no">181</span><span id="line-181">        }</span>
+<span class="source-line-no">182</span><span id="line-182">    }   //  generateReport()</span>
+<span class="source-line-no">183</span><span id="line-183"></span>
+<span class="source-line-no">184</span><span id="line-184">    /**</span>
+<span class="source-line-no">185</span><span id="line-185">     *  Generates the report in</span>
+<span class="source-line-no">186</span><span id="line-186">     *  {@link ReportFormat#HTML}</span>
+<span class="source-line-no">187</span><span id="line-187">     *  or</span>
+<span class="source-line-no">188</span><span id="line-188">     *  {@link ReportFormat#HTML_EMBEDDED}</span>
+<span class="source-line-no">189</span><span id="line-189">     *  format.</span>
+<span class="source-line-no">190</span><span id="line-190">     *</span>
+<span class="source-line-no">191</span><span id="line-191">     *  @param destination  The output file.</span>
+<span class="source-line-no">192</span><span id="line-192">     *  @param contents The map with the report data.</span>
+<span class="source-line-no">193</span><span id="line-193">     *  @throws IOException An error occurred while writing to the destination.</span>
+<span class="source-line-no">194</span><span id="line-194">     */</span>
+<span class="source-line-no">195</span><span id="line-195">    private final void generateHTMLReport( final File destination, final Map&lt;String,String&gt; contents ) throws IOException</span>
+<span class="source-line-no">196</span><span id="line-196">    {</span>
+<span class="source-line-no">197</span><span id="line-197">        final var targetFile = checkDestination( destination, DEST_FILE );</span>
+<span class="source-line-no">198</span><span id="line-198">        final var template = new Template(</span>
+<span class="source-line-no">199</span><span id="line-199">            """</span>
+<span class="source-line-no">200</span><span id="line-200">                &lt;!DOCTYPE html&gt;</span>
+<span class="source-line-no">201</span><span id="line-201">                &lt;html lang="${Language}"&gt;</span>
+<span class="source-line-no">202</span><span id="line-202">                  &lt;head&gt;</span>
+<span class="source-line-no">203</span><span id="line-203">                    &lt;meta charset="utf-8"&gt;</span>
+<span class="source-line-no">204</span><span id="line-204">                    &lt;title&gt;${Headline} ${NameCaption} ${Name} (${Birthdate})&lt;/title&gt;</span>
+<span class="source-line-no">205</span><span id="line-205">                  &lt;/head&gt;</span>
+<span class="source-line-no">206</span><span id="line-206">                  &lt;body&gt;</span>
+<span class="source-line-no">207</span><span id="line-207">                  &lt;h1&gt;${Headline}&lt;/h1&gt;</span>
+<span class="source-line-no">208</span><span id="line-208">                  &lt;p&gt;${NameCaption} &lt;b&gt;${Name}&lt;/b&gt; (${Birthdate})&lt;/p&gt;</span>
+<span class="source-line-no">209</span><span id="line-209">                  &lt;hr&gt;</span>
+<span class="source-line-no">210</span><span id="line-210">                  &lt;table&gt;</span>
+<span class="source-line-no">211</span><span id="line-211">                    &lt;tr&gt;</span>
+<span class="source-line-no">212</span><span id="line-212">                      &lt;th&gt;${FirstDayCaption}:&lt;/th&gt;&lt;td&gt;${FirstDay}&lt;/td&gt;</span>
+<span class="source-line-no">213</span><span id="line-213">                    &lt;/tr&gt;</span>
+<span class="source-line-no">214</span><span id="line-214">                    &lt;tr&gt;</span>
+<span class="source-line-no">215</span><span id="line-215">                      &lt;th&gt;${LastDayCaption}:&lt;/th&gt;&lt;td&gt;${LastDay}&lt;/td&gt;</span>
+<span class="source-line-no">216</span><span id="line-216">                    &lt;/tr&gt;</span>
+<span class="source-line-no">217</span><span id="line-217">                  &lt;/table&gt;</span>
+<span class="source-line-no">218</span><span id="line-218">                  &lt;br&gt;</span>
+<span class="source-line-no">219</span><span id="line-219">                  &lt;table&gt;</span>
+<span class="source-line-no">220</span><span id="line-220">                    &lt;tr&gt;</span>
+<span class="source-line-no">221</span><span id="line-221">                      &lt;th&gt;${TotalCountCaption}:&lt;/th&gt;&lt;td align="right"&gt;${TotalCount}&lt;/td&gt;</span>
+<span class="source-line-no">222</span><span id="line-222">                    &lt;/tr&gt;</span>
+<span class="source-line-no">223</span><span id="line-223">                    &lt;tr&gt;</span>
+<span class="source-line-no">224</span><span id="line-224">                      &lt;th&gt;${TotalDaysCaption}:&lt;/th&gt;&lt;td align="right"&gt;${TotalDays}&lt;/td&gt;</span>
+<span class="source-line-no">225</span><span id="line-225">                    &lt;/tr&gt;</span>
+<span class="source-line-no">226</span><span id="line-226">                    &lt;tr&gt;</span>
+<span class="source-line-no">227</span><span id="line-227">                      &lt;th&gt;${DayCountCaption}:&lt;/th&gt;&lt;td align="right"&gt;${DayCount}&lt;/td&gt;</span>
+<span class="source-line-no">228</span><span id="line-228">                    &lt;/tr&gt;</span>
+<span class="source-line-no">229</span><span id="line-229">                  &lt;/table&gt;</span>
+<span class="source-line-no">230</span><span id="line-230">                  &lt;br&gt;</span>
+<span class="source-line-no">231</span><span id="line-231">                  &lt;table border="1"&gt;</span>
+<span class="source-line-no">232</span><span id="line-232">                    &lt;thead&gt;</span>
+<span class="source-line-no">233</span><span id="line-233">                      &lt;tr&gt;</span>
+<span class="source-line-no">234</span><span id="line-234">                        &lt;th/&gt;</span>
+<span class="source-line-no">235</span><span id="line-235">                        &lt;th&gt;${TableHeader1}&lt;/th&gt;</span>
+<span class="source-line-no">236</span><span id="line-236">                        &lt;th&gt;${TableHeader2}&lt;/th&gt;</span>
+<span class="source-line-no">237</span><span id="line-237">                        &lt;th&gt;${TableHeader3}&lt;/th&gt;</span>
+<span class="source-line-no">238</span><span id="line-238">                        &lt;th&gt;${TableHeader4}&lt;/th&gt;</span>
+<span class="source-line-no">239</span><span id="line-239">                      &lt;/tr&gt;</span>
+<span class="source-line-no">240</span><span id="line-240">                    &lt;/thead&gt;</span>
+<span class="source-line-no">241</span><span id="line-241">                    &lt;tbody&gt;</span>
+<span class="source-line-no">242</span><span id="line-242">                      &lt;tr&gt;</span>
+<span class="source-line-no">243</span><span id="line-243">                        &lt;th&gt;${AverageCaption}&lt;/th&gt;</span>
+<span class="source-line-no">244</span><span id="line-244">                        &lt;td align="right"&gt;${AverageSystolic}&lt;/td&gt;</span>
+<span class="source-line-no">245</span><span id="line-245">                        &lt;td align="right"&gt;${AverageDiastolic}&lt;/td&gt;</span>
+<span class="source-line-no">246</span><span id="line-246">                        &lt;td align="right"&gt;${AveragePulsePressure}&lt;/td&gt;</span>
+<span class="source-line-no">247</span><span id="line-247">                        &lt;td&gt;${AverageAssessment}&lt;/td&gt;</span>
+<span class="source-line-no">248</span><span id="line-248">                      &lt;/tr&gt;</span>
 <span class="source-line-no">249</span><span id="line-249">                      &lt;tr&gt;</span>
-<span class="source-line-no">250</span><span id="line-250">                        &lt;th/&gt;</span>
-<span class="source-line-no">251</span><span id="line-251">                        &lt;th&gt;${TableHeader1}&lt;/th&gt;</span>
-<span class="source-line-no">252</span><span id="line-252">                        &lt;th&gt;${TableHeader2}&lt;/th&gt;</span>
-<span class="source-line-no">253</span><span id="line-253">                        &lt;th&gt;${TableHeader3}&lt;/th&gt;</span>
-<span class="source-line-no">254</span><span id="line-254">                        &lt;th&gt;${TableHeader4}&lt;/th&gt;</span>
+<span class="source-line-no">250</span><span id="line-250">                        &lt;th&gt;${WeightedAverageCaption}&lt;/th&gt;</span>
+<span class="source-line-no">251</span><span id="line-251">                        &lt;td align="right"&gt;${WeightedAverageSystolic}&lt;/td&gt;</span>
+<span class="source-line-no">252</span><span id="line-252">                        &lt;td align="right"&gt;${WeightedAverageDiastolic}&lt;/td&gt;</span>
+<span class="source-line-no">253</span><span id="line-253">                        &lt;td align="right"&gt;${WeightedAveragePulsePressure}&lt;/td&gt;</span>
+<span class="source-line-no">254</span><span id="line-254">                        &lt;td&gt;${WeightedAverageAssessment}&lt;/td&gt;</span>
 <span class="source-line-no">255</span><span id="line-255">                      &lt;/tr&gt;</span>
-<span class="source-line-no">256</span><span id="line-256">                    &lt;/thead&gt;</span>
-<span class="source-line-no">257</span><span id="line-257">                    &lt;tbody&gt;</span>
-<span class="source-line-no">258</span><span id="line-258">                      &lt;tr&gt;</span>
-<span class="source-line-no">259</span><span id="line-259">                        &lt;th&gt;${AverageCaption}&lt;/th&gt;</span>
-<span class="source-line-no">260</span><span id="line-260">                        &lt;td align="right"&gt;${AverageSystolic}&lt;/td&gt;</span>
-<span class="source-line-no">261</span><span id="line-261">                        &lt;td align="right"&gt;${AverageDiastolic}&lt;/td&gt;</span>
-<span class="source-line-no">262</span><span id="line-262">                        &lt;td align="right"&gt;${AveragePulsePressure}&lt;/td&gt;</span>
-<span class="source-line-no">263</span><span id="line-263">                        &lt;td&gt;${AverageAssessment}&lt;/td&gt;</span>
-<span class="source-line-no">264</span><span id="line-264">                      &lt;/tr&gt;</span>
-<span class="source-line-no">265</span><span id="line-265">                      &lt;tr&gt;</span>
-<span class="source-line-no">266</span><span id="line-266">                        &lt;th&gt;${WeightedAverageCaption}&lt;/th&gt;</span>
-<span class="source-line-no">267</span><span id="line-267">                        &lt;td align="right"&gt;${WeightedAverageSystolic}&lt;/td&gt;</span>
-<span class="source-line-no">268</span><span id="line-268">                        &lt;td align="right"&gt;${WeightedAverageDiastolic}&lt;/td&gt;</span>
-<span class="source-line-no">269</span><span id="line-269">                        &lt;td align="right"&gt;${WeightedAveragePulsePressure}&lt;/td&gt;</span>
-<span class="source-line-no">270</span><span id="line-270">                        &lt;td&gt;${WeightedAverageAssessment}&lt;/td&gt;</span>
-<span class="source-line-no">271</span><span id="line-271">                      &lt;/tr&gt;</span>
-<span class="source-line-no">272</span><span id="line-272">                      &lt;tr&gt;</span>
-<span class="source-line-no">273</span><span id="line-273">                        &lt;th&gt;${MedianCaption}&lt;/th&gt;</span>
-<span class="source-line-no">274</span><span id="line-274">                        &lt;td align="right"&gt;${MedianSystolic}&lt;/td&gt;</span>
-<span class="source-line-no">275</span><span id="line-275">                        &lt;td align="right"&gt;${MedianDiastolic}&lt;/td&gt;</span>
-<span class="source-line-no">276</span><span id="line-276">                        &lt;td align="right"&gt;${MedianPulsePressure}&lt;/td&gt;</span>
-<span class="source-line-no">277</span><span id="line-277">                        &lt;td&gt;${MedianAssessment}&lt;/td&gt;</span>
-<span class="source-line-no">278</span><span id="line-278">                      &lt;/tr&gt;</span>
-<span class="source-line-no">279</span><span id="line-279">                    &lt;/tbody&gt;</span>
-<span class="source-line-no">280</span><span id="line-280">                  &lt;/table&gt;</span>
-<span class="source-line-no">281</span><span id="line-281">                  &lt;br&gt;</span>
-<span class="source-line-no">282</span><span id="line-282">                  &lt;h2&gt;${DistributionCaption}&lt;/h2&gt;</span>
-<span class="source-line-no">283</span><span id="line-283">                  &lt;table border="1"&gt;</span>
-<span class="source-line-no">284</span><span id="line-284">                    &lt;thead&gt;</span>
+<span class="source-line-no">256</span><span id="line-256">                      &lt;tr&gt;</span>
+<span class="source-line-no">257</span><span id="line-257">                        &lt;th&gt;${MedianCaption}&lt;/th&gt;</span>
+<span class="source-line-no">258</span><span id="line-258">                        &lt;td align="right"&gt;${MedianSystolic}&lt;/td&gt;</span>
+<span class="source-line-no">259</span><span id="line-259">                        &lt;td align="right"&gt;${MedianDiastolic}&lt;/td&gt;</span>
+<span class="source-line-no">260</span><span id="line-260">                        &lt;td align="right"&gt;${MedianPulsePressure}&lt;/td&gt;</span>
+<span class="source-line-no">261</span><span id="line-261">                        &lt;td&gt;${MedianAssessment}&lt;/td&gt;</span>
+<span class="source-line-no">262</span><span id="line-262">                      &lt;/tr&gt;</span>
+<span class="source-line-no">263</span><span id="line-263">                    &lt;/tbody&gt;</span>
+<span class="source-line-no">264</span><span id="line-264">                  &lt;/table&gt;</span>
+<span class="source-line-no">265</span><span id="line-265">                  &lt;br&gt;</span>
+<span class="source-line-no">266</span><span id="line-266">                  &lt;h2&gt;${DistributionCaption}&lt;/h2&gt;</span>
+<span class="source-line-no">267</span><span id="line-267">                  &lt;table border="1"&gt;</span>
+<span class="source-line-no">268</span><span id="line-268">                    &lt;thead&gt;</span>
+<span class="source-line-no">269</span><span id="line-269">                      &lt;tr&gt;</span>
+<span class="source-line-no">270</span><span id="line-270">                        &lt;th/&gt;</span>
+<span class="source-line-no">271</span><span id="line-271">                        &lt;th colspan="3"&gt;${DistributionColumn1Header}&lt;/th&gt;</span>
+<span class="source-line-no">272</span><span id="line-272">                        &lt;th colspan="3"&gt;${DistributionColumn2Header}&lt;/th&gt;</span>
+<span class="source-line-no">273</span><span id="line-273">                      &lt;/tr&gt;</span>
+<span class="source-line-no">274</span><span id="line-274">                    &lt;/thead&gt;</span>
+<span class="source-line-no">275</span><span id="line-275">                    &lt;tbody&gt;</span>
+<span class="source-line-no">276</span><span id="line-276">                      &lt;tr&gt;</span>
+<span class="source-line-no">277</span><span id="line-277">                        &lt;th&gt;${Diag_LOW}&lt;/th&gt;</span>
+<span class="source-line-no">278</span><span id="line-278">                        &lt;td align="right"&gt;(&amp;lt; 105)&lt;/td&gt;</span>
+<span class="source-line-no">279</span><span id="line-279">                        &lt;td align="right"&gt;${Diag_LOW_SystolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">280</span><span id="line-280">                        &lt;td align="right"&gt;${Diag_LOW_SystolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">281</span><span id="line-281">                        &lt;td align="right"&gt;(&amp;lt; 65)&lt;/td&gt;</span>
+<span class="source-line-no">282</span><span id="line-282">                        &lt;td align="right"&gt;${Diag_LOW_DiastolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">283</span><span id="line-283">                        &lt;td align="right"&gt;${Diag_LOW_DiastolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">284</span><span id="line-284">                      &lt;/tr&gt;</span>
 <span class="source-line-no">285</span><span id="line-285">                      &lt;tr&gt;</span>
-<span class="source-line-no">286</span><span id="line-286">                        &lt;th/&gt;</span>
-<span class="source-line-no">287</span><span id="line-287">                        &lt;th colspan="3"&gt;${DistributionColumn1Header}&lt;/th&gt;</span>
-<span class="source-line-no">288</span><span id="line-288">                        &lt;th colspan="3"&gt;${DistributionColumn2Header}&lt;/th&gt;</span>
-<span class="source-line-no">289</span><span id="line-289">                      &lt;/tr&gt;</span>
-<span class="source-line-no">290</span><span id="line-290">                    &lt;/thead&gt;</span>
-<span class="source-line-no">291</span><span id="line-291">                    &lt;tbody&gt;</span>
-<span class="source-line-no">292</span><span id="line-292">                      &lt;tr&gt;</span>
-<span class="source-line-no">293</span><span id="line-293">                        &lt;th&gt;${Diag_LOW}&lt;/th&gt;</span>
-<span class="source-line-no">294</span><span id="line-294">                        &lt;td align="right"&gt;(&amp;lt; 105)&lt;/td&gt;</span>
-<span class="source-line-no">295</span><span id="line-295">                        &lt;td align="right"&gt;${Diag_LOW_SystolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">296</span><span id="line-296">                        &lt;td align="right"&gt;${Diag_LOW_SystolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">297</span><span id="line-297">                        &lt;td align="right"&gt;(&amp;lt; 65)&lt;/td&gt;</span>
-<span class="source-line-no">298</span><span id="line-298">                        &lt;td align="right"&gt;${Diag_LOW_DiastolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">299</span><span id="line-299">                        &lt;td align="right"&gt;${Diag_LOW_DiastolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">300</span><span id="line-300">                      &lt;/tr&gt;</span>
-<span class="source-line-no">301</span><span id="line-301">                      &lt;tr&gt;</span>
-<span class="source-line-no">302</span><span id="line-302">                        &lt;th&gt;${Diag_OPTIMAL}&lt;/th&gt;</span>
-<span class="source-line-no">303</span><span id="line-303">                        &lt;td align="right"&gt;(105-119)&lt;/td&gt;</span>
-<span class="source-line-no">304</span><span id="line-304">                        &lt;td align="right"&gt;${Diag_OPTIMAL_SystolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">305</span><span id="line-305">                        &lt;td align="right"&gt;${Diag_OPTIMAL_SystolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">306</span><span id="line-306">                        &lt;td align="right"&gt;(65-79)&lt;/td&gt;</span>
-<span class="source-line-no">307</span><span id="line-307">                        &lt;td align="right"&gt;${Diag_OPTIMAL_DiastolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">308</span><span id="line-308">                        &lt;td align="right"&gt;${Diag_OPTIMAL_DiastolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">309</span><span id="line-309">                      &lt;/tr&gt;</span>
-<span class="source-line-no">310</span><span id="line-310">                      &lt;tr&gt;</span>
-<span class="source-line-no">311</span><span id="line-311">                        &lt;th&gt;${Diag_NORMAL}&lt;/th&gt;</span>
-<span class="source-line-no">312</span><span id="line-312">                        &lt;td align="right"&gt;(120-129)&lt;/td&gt;</span>
-<span class="source-line-no">313</span><span id="line-313">                        &lt;td align="right"&gt;${Diag_NORMAL_SystolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">314</span><span id="line-314">                        &lt;td align="right"&gt;${Diag_NORMAL_SystolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">315</span><span id="line-315">                        &lt;td align="right"&gt;(80-84)&lt;/td&gt;</span>
-<span class="source-line-no">316</span><span id="line-316">                        &lt;td align="right"&gt;${Diag_NORMAL_DiastolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">317</span><span id="line-317">                        &lt;td align="right"&gt;${Diag_NORMAL_DiastolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">318</span><span id="line-318">                      &lt;/tr&gt;</span>
-<span class="source-line-no">319</span><span id="line-319">                      &lt;tr&gt;</span>
-<span class="source-line-no">320</span><span id="line-320">                        &lt;th&gt;${Diag_NORMAL_HIGH}&lt;/th&gt;</span>
-<span class="source-line-no">321</span><span id="line-321">                        &lt;td align="right"&gt;(130-139)&lt;/td&gt;</span>
-<span class="source-line-no">322</span><span id="line-322">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_SystolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">323</span><span id="line-323">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_SystolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">324</span><span id="line-324">                        &lt;td align="right"&gt;(85-89)&lt;/td&gt;</span>
-<span class="source-line-no">325</span><span id="line-325">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_DiastolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">326</span><span id="line-326">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_DiastolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">327</span><span id="line-327">                      &lt;/tr&gt;</span>
-<span class="source-line-no">328</span><span id="line-328">                      &lt;tr&gt;</span>
-<span class="source-line-no">329</span><span id="line-329">                        &lt;th&gt;${Diag_HIGH1}&lt;/th&gt;</span>
-<span class="source-line-no">330</span><span id="line-330">                        &lt;td align="right"&gt;(140-159)&lt;/td&gt;</span>
-<span class="source-line-no">331</span><span id="line-331">                        &lt;td align="right"&gt;${Diag_HIGH1_SystolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">332</span><span id="line-332">                        &lt;td align="right"&gt;${Diag_HIGH1_SystolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">333</span><span id="line-333">                        &lt;td align="right"&gt;(90-99)&lt;/td&gt;</span>
-<span class="source-line-no">334</span><span id="line-334">                        &lt;td align="right"&gt;${Diag_HIGH1_DiastolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">335</span><span id="line-335">                        &lt;td align="right"&gt;${Diag_HIGH1_DiastolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">336</span><span id="line-336">                      &lt;/tr&gt;</span>
-<span class="source-line-no">337</span><span id="line-337">                      &lt;tr&gt;</span>
-<span class="source-line-no">338</span><span id="line-338">                        &lt;th&gt;${Diag_HIGH2}&lt;/th&gt;</span>
-<span class="source-line-no">339</span><span id="line-339">                        &lt;td align="right"&gt;(160-179)&lt;/td&gt;</span>
-<span class="source-line-no">340</span><span id="line-340">                        &lt;td align="right"&gt;${Diag_HIGH2_SystolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">341</span><span id="line-341">                        &lt;td align="right"&gt;${Diag_HIGH2_SystolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">342</span><span id="line-342">                        &lt;td align="right"&gt;(100-109)&lt;/td&gt;</span>
-<span class="source-line-no">343</span><span id="line-343">                        &lt;td align="right"&gt;${Diag_HIGH2_DiastolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">344</span><span id="line-344">                        &lt;td align="right"&gt;${Diag_HIGH2_DiastolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">345</span><span id="line-345">                      &lt;/tr&gt;</span>
-<span class="source-line-no">346</span><span id="line-346">                      &lt;tr&gt;</span>
-<span class="source-line-no">347</span><span id="line-347">                        &lt;th&gt;${Diag_HIGH3}&lt;/th&gt;</span>
-<span class="source-line-no">348</span><span id="line-348">                        &lt;td align="right"&gt;(&amp;gt;= 180)&lt;/td&gt;</span>
-<span class="source-line-no">349</span><span id="line-349">                        &lt;td align="right"&gt;${Diag_HIGH3_SystolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">350</span><span id="line-350">                        &lt;td align="right"&gt;${Diag_HIGH3_SystolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">351</span><span id="line-351">                        &lt;td align="right"&gt;(&amp;gt;= 110)&lt;/td&gt;</span>
-<span class="source-line-no">352</span><span id="line-352">                        &lt;td align="right"&gt;${Diag_HIGH3_DiastolicPercent}&lt;/td&gt;</span>
-<span class="source-line-no">353</span><span id="line-353">                        &lt;td align="right"&gt;${Diag_HIGH3_DiastolicCount}&lt;/td&gt;</span>
-<span class="source-line-no">354</span><span id="line-354">                      &lt;/tr&gt;</span>
-<span class="source-line-no">355</span><span id="line-355">                    &lt;/tbody&gt;</span>
-<span class="source-line-no">356</span><span id="line-356">                  &lt;/table&gt;</span>
-<span class="source-line-no">357</span><span id="line-357">                  &lt;br&gt;</span>
-<span class="source-line-no">358</span><span id="line-358">                  &lt;p&gt;${Disclaimer}&lt;/p&gt;</span>
-<span class="source-line-no">359</span><span id="line-359">                  &lt;/body&gt;</span>
-<span class="source-line-no">360</span><span id="line-360">                &lt;/html&gt;</span>
-<span class="source-line-no">361</span><span id="line-361">                """</span>
-<span class="source-line-no">362</span><span id="line-362">        );</span>
-<span class="source-line-no">363</span><span id="line-363">        writeString( targetFile, template.replaceVariable( contents ), UTF8 );</span>
-<span class="source-line-no">364</span><span id="line-364">    }   //  generateHTMLReport()</span>
-<span class="source-line-no">365</span><span id="line-365"></span>
-<span class="source-line-no">366</span><span id="line-366">    /**</span>
-<span class="source-line-no">367</span><span id="line-367">     *  Generates the report in</span>
-<span class="source-line-no">368</span><span id="line-368">     *  {@link ReportFormat#TEXT}</span>
-<span class="source-line-no">369</span><span id="line-369">     *  format.</span>
-<span class="source-line-no">370</span><span id="line-370">     *</span>
-<span class="source-line-no">371</span><span id="line-371">     *  @param destination  The output file.</span>
-<span class="source-line-no">372</span><span id="line-372">     *  @param contents The map with the report data.</span>
-<span class="source-line-no">373</span><span id="line-373">     *  @throws IOException An error occurred while writing to the destination.</span>
-<span class="source-line-no">374</span><span id="line-374">     */</span>
-<span class="source-line-no">375</span><span id="line-375">    private final void generateTextReport( final File destination, final Map&lt;String,String&gt; contents ) throws IOException</span>
-<span class="source-line-no">376</span><span id="line-376">    {</span>
-<span class="source-line-no">377</span><span id="line-377">        final var targetFile = checkDestination( destination, DEST_FILE );</span>
-<span class="source-line-no">378</span><span id="line-378">        final var template = new Template(</span>
-<span class="source-line-no">379</span><span id="line-379">            """</span>
-<span class="source-line-no">380</span><span id="line-380">                ${Headline}</span>
+<span class="source-line-no">286</span><span id="line-286">                        &lt;th&gt;${Diag_OPTIMAL}&lt;/th&gt;</span>
+<span class="source-line-no">287</span><span id="line-287">                        &lt;td align="right"&gt;(105-119)&lt;/td&gt;</span>
+<span class="source-line-no">288</span><span id="line-288">                        &lt;td align="right"&gt;${Diag_OPTIMAL_SystolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">289</span><span id="line-289">                        &lt;td align="right"&gt;${Diag_OPTIMAL_SystolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">290</span><span id="line-290">                        &lt;td align="right"&gt;(65-79)&lt;/td&gt;</span>
+<span class="source-line-no">291</span><span id="line-291">                        &lt;td align="right"&gt;${Diag_OPTIMAL_DiastolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">292</span><span id="line-292">                        &lt;td align="right"&gt;${Diag_OPTIMAL_DiastolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">293</span><span id="line-293">                      &lt;/tr&gt;</span>
+<span class="source-line-no">294</span><span id="line-294">                      &lt;tr&gt;</span>
+<span class="source-line-no">295</span><span id="line-295">                        &lt;th&gt;${Diag_NORMAL}&lt;/th&gt;</span>
+<span class="source-line-no">296</span><span id="line-296">                        &lt;td align="right"&gt;(120-129)&lt;/td&gt;</span>
+<span class="source-line-no">297</span><span id="line-297">                        &lt;td align="right"&gt;${Diag_NORMAL_SystolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">298</span><span id="line-298">                        &lt;td align="right"&gt;${Diag_NORMAL_SystolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">299</span><span id="line-299">                        &lt;td align="right"&gt;(80-84)&lt;/td&gt;</span>
+<span class="source-line-no">300</span><span id="line-300">                        &lt;td align="right"&gt;${Diag_NORMAL_DiastolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">301</span><span id="line-301">                        &lt;td align="right"&gt;${Diag_NORMAL_DiastolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">302</span><span id="line-302">                      &lt;/tr&gt;</span>
+<span class="source-line-no">303</span><span id="line-303">                      &lt;tr&gt;</span>
+<span class="source-line-no">304</span><span id="line-304">                        &lt;th&gt;${Diag_NORMAL_HIGH}&lt;/th&gt;</span>
+<span class="source-line-no">305</span><span id="line-305">                        &lt;td align="right"&gt;(130-139)&lt;/td&gt;</span>
+<span class="source-line-no">306</span><span id="line-306">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_SystolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">307</span><span id="line-307">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_SystolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">308</span><span id="line-308">                        &lt;td align="right"&gt;(85-89)&lt;/td&gt;</span>
+<span class="source-line-no">309</span><span id="line-309">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_DiastolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">310</span><span id="line-310">                        &lt;td align="right"&gt;${Diag_NORMAL_HIGH_DiastolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">311</span><span id="line-311">                      &lt;/tr&gt;</span>
+<span class="source-line-no">312</span><span id="line-312">                      &lt;tr&gt;</span>
+<span class="source-line-no">313</span><span id="line-313">                        &lt;th&gt;${Diag_HIGH1}&lt;/th&gt;</span>
+<span class="source-line-no">314</span><span id="line-314">                        &lt;td align="right"&gt;(140-159)&lt;/td&gt;</span>
+<span class="source-line-no">315</span><span id="line-315">                        &lt;td align="right"&gt;${Diag_HIGH1_SystolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">316</span><span id="line-316">                        &lt;td align="right"&gt;${Diag_HIGH1_SystolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">317</span><span id="line-317">                        &lt;td align="right"&gt;(90-99)&lt;/td&gt;</span>
+<span class="source-line-no">318</span><span id="line-318">                        &lt;td align="right"&gt;${Diag_HIGH1_DiastolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">319</span><span id="line-319">                        &lt;td align="right"&gt;${Diag_HIGH1_DiastolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">320</span><span id="line-320">                      &lt;/tr&gt;</span>
+<span class="source-line-no">321</span><span id="line-321">                      &lt;tr&gt;</span>
+<span class="source-line-no">322</span><span id="line-322">                        &lt;th&gt;${Diag_HIGH2}&lt;/th&gt;</span>
+<span class="source-line-no">323</span><span id="line-323">                        &lt;td align="right"&gt;(160-179)&lt;/td&gt;</span>
+<span class="source-line-no">324</span><span id="line-324">                        &lt;td align="right"&gt;${Diag_HIGH2_SystolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">325</span><span id="line-325">                        &lt;td align="right"&gt;${Diag_HIGH2_SystolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">326</span><span id="line-326">                        &lt;td align="right"&gt;(100-109)&lt;/td&gt;</span>
+<span class="source-line-no">327</span><span id="line-327">                        &lt;td align="right"&gt;${Diag_HIGH2_DiastolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">328</span><span id="line-328">                        &lt;td align="right"&gt;${Diag_HIGH2_DiastolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">329</span><span id="line-329">                      &lt;/tr&gt;</span>
+<span class="source-line-no">330</span><span id="line-330">                      &lt;tr&gt;</span>
+<span class="source-line-no">331</span><span id="line-331">                        &lt;th&gt;${Diag_HIGH3}&lt;/th&gt;</span>
+<span class="source-line-no">332</span><span id="line-332">                        &lt;td align="right"&gt;(&amp;gt;= 180)&lt;/td&gt;</span>
+<span class="source-line-no">333</span><span id="line-333">                        &lt;td align="right"&gt;${Diag_HIGH3_SystolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">334</span><span id="line-334">                        &lt;td align="right"&gt;${Diag_HIGH3_SystolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">335</span><span id="line-335">                        &lt;td align="right"&gt;(&amp;gt;= 110)&lt;/td&gt;</span>
+<span class="source-line-no">336</span><span id="line-336">                        &lt;td align="right"&gt;${Diag_HIGH3_DiastolicPercent}&lt;/td&gt;</span>
+<span class="source-line-no">337</span><span id="line-337">                        &lt;td align="right"&gt;${Diag_HIGH3_DiastolicCount}&lt;/td&gt;</span>
+<span class="source-line-no">338</span><span id="line-338">                      &lt;/tr&gt;</span>
+<span class="source-line-no">339</span><span id="line-339">                    &lt;/tbody&gt;</span>
+<span class="source-line-no">340</span><span id="line-340">                  &lt;/table&gt;</span>
+<span class="source-line-no">341</span><span id="line-341">                  &lt;br&gt;</span>
+<span class="source-line-no">342</span><span id="line-342">                  &lt;p&gt;${Disclaimer}&lt;/p&gt;</span>
+<span class="source-line-no">343</span><span id="line-343">                  &lt;/body&gt;</span>
+<span class="source-line-no">344</span><span id="line-344">                &lt;/html&gt;</span>
+<span class="source-line-no">345</span><span id="line-345">                """</span>
+<span class="source-line-no">346</span><span id="line-346">        );</span>
+<span class="source-line-no">347</span><span id="line-347">        writeString( targetFile, template.replaceVariable( contents ), UTF8 );</span>
+<span class="source-line-no">348</span><span id="line-348">    }   //  generateHTMLReport()</span>
+<span class="source-line-no">349</span><span id="line-349"></span>
+<span class="source-line-no">350</span><span id="line-350">    /**</span>
+<span class="source-line-no">351</span><span id="line-351">     *  Generates the report in</span>
+<span class="source-line-no">352</span><span id="line-352">     *  {@link ReportFormat#TEXT}</span>
+<span class="source-line-no">353</span><span id="line-353">     *  format.</span>
+<span class="source-line-no">354</span><span id="line-354">     *</span>
+<span class="source-line-no">355</span><span id="line-355">     *  @param destination  The output file.</span>
+<span class="source-line-no">356</span><span id="line-356">     *  @param contents The map with the report data.</span>
+<span class="source-line-no">357</span><span id="line-357">     *  @throws IOException An error occurred while writing to the destination.</span>
+<span class="source-line-no">358</span><span id="line-358">     */</span>
+<span class="source-line-no">359</span><span id="line-359">    private final void generateTextReport( final File destination, final Map&lt;String,String&gt; contents ) throws IOException</span>
+<span class="source-line-no">360</span><span id="line-360">    {</span>
+<span class="source-line-no">361</span><span id="line-361">        final var targetFile = checkDestination( destination, DEST_FILE );</span>
+<span class="source-line-no">362</span><span id="line-362">        final var template = new Template(</span>
+<span class="source-line-no">363</span><span id="line-363">            """</span>
+<span class="source-line-no">364</span><span id="line-364">                ${Headline}</span>
+<span class="source-line-no">365</span><span id="line-365">                </span>
+<span class="source-line-no">366</span><span id="line-366">                ${NameCaption} ${Name} (${Birthdate})</span>
+<span class="source-line-no">367</span><span id="line-367">                </span>
+<span class="source-line-no">368</span><span id="line-368">                -------------------------------------------------------------------------------</span>
+<span class="source-line-no">369</span><span id="line-369">                            </span>
+<span class="source-line-no">370</span><span id="line-370">                ${FirstDayCaption}: ${FirstDay}</span>
+<span class="source-line-no">371</span><span id="line-371">                ${LastDayCaption}: ${LastDay}</span>
+<span class="source-line-no">372</span><span id="line-372">                            </span>
+<span class="source-line-no">373</span><span id="line-373">                ${TotalCountCaption}: ${TotalCount}</span>
+<span class="source-line-no">374</span><span id="line-374">                ${TotalDaysCaption}: ${TotalDays}</span>
+<span class="source-line-no">375</span><span id="line-375">                ${DayCountCaption}: ${DayCount}</span>
+<span class="source-line-no">376</span><span id="line-376">                            </span>
+<span class="source-line-no">377</span><span id="line-377">                                               ${TableHeader}</span>
+<span class="source-line-no">378</span><span id="line-378">                ${AverageCaption}:   ${AverageSystolic}         ${AverageDiastolic}          ${AveragePulsePressure}          ${AverageAssessment}</span>
+<span class="source-line-no">379</span><span id="line-379">                ${WeightedAverageCaption}:   ${WeightedAverageSystolic}         ${WeightedAverageDiastolic}          ${WeightedAveragePulsePressure}          ${WeightedAverageAssessment}</span>
+<span class="source-line-no">380</span><span id="line-380">                ${MedianCaption}:   ${MedianSystolic}         ${MedianDiastolic}          ${MedianPulsePressure}          ${MedianAssessment}</span>
 <span class="source-line-no">381</span><span id="line-381">                </span>
-<span class="source-line-no">382</span><span id="line-382">                ${NameCaption} ${Name} (${Birthdate})</span>
-<span class="source-line-no">383</span><span id="line-383">                </span>
-<span class="source-line-no">384</span><span id="line-384">                -------------------------------------------------------------------------------</span>
-<span class="source-line-no">385</span><span id="line-385">                            </span>
-<span class="source-line-no">386</span><span id="line-386">                ${FirstDayCaption}: ${FirstDay}</span>
-<span class="source-line-no">387</span><span id="line-387">                ${LastDayCaption}: ${LastDay}</span>
-<span class="source-line-no">388</span><span id="line-388">                            </span>
-<span class="source-line-no">389</span><span id="line-389">                ${TotalCountCaption}: ${TotalCount}</span>
-<span class="source-line-no">390</span><span id="line-390">                ${TotalDaysCaption}: ${TotalDays}</span>
-<span class="source-line-no">391</span><span id="line-391">                ${DayCountCaption}: ${DayCount}</span>
-<span class="source-line-no">392</span><span id="line-392">                            </span>
-<span class="source-line-no">393</span><span id="line-393">                                               ${TableHeader}</span>
-<span class="source-line-no">394</span><span id="line-394">                ${AverageCaption}:   ${AverageSystolic}         ${AverageDiastolic}          ${AveragePulsePressure}          ${AverageAssessment}</span>
-<span class="source-line-no">395</span><span id="line-395">                ${WeightedAverageCaption}:   ${WeightedAverageSystolic}         ${WeightedAverageDiastolic}          ${WeightedAveragePulsePressure}          ${WeightedAverageAssessment}</span>
-<span class="source-line-no">396</span><span id="line-396">                ${MedianCaption}:   ${MedianSystolic}         ${MedianDiastolic}          ${MedianPulsePressure}          ${MedianAssessment}</span>
-<span class="source-line-no">397</span><span id="line-397">                </span>
-<span class="source-line-no">398</span><span id="line-398">                ${DistributionCaption}</span>
-<span class="source-line-no">399</span><span id="line-399">                ${Diag_Filler}  ${DistributionColumn1Header} ${DistributionColumn2Header}</span>
-<span class="source-line-no">400</span><span id="line-400">                ${Diag_LOW}  (&lt; 105)    ${Diag_LOW_SystolicPercent}   (&lt; 65)    ${Diag_LOW_DiastolicPercent}</span>
-<span class="source-line-no">401</span><span id="line-401">                ${Diag_OPTIMAL}  (105-119)  ${Diag_OPTIMAL_SystolicPercent}   (65-79)   ${Diag_OPTIMAL_DiastolicPercent}</span>
-<span class="source-line-no">402</span><span id="line-402">                ${Diag_NORMAL}  (120-129)  ${Diag_NORMAL_SystolicPercent}   (80-84)   ${Diag_NORMAL_DiastolicPercent}</span>
-<span class="source-line-no">403</span><span id="line-403">                ${Diag_NORMAL_HIGH}  (130-139)  ${Diag_NORMAL_HIGH_SystolicPercent}   (85-89)   ${Diag_NORMAL_HIGH_DiastolicPercent}</span>
-<span class="source-line-no">404</span><span id="line-404">                ${Diag_HIGH1}  (140-159)  ${Diag_HIGH1_SystolicPercent}   (90-99)   ${Diag_HIGH1_DiastolicPercent}</span>
-<span class="source-line-no">405</span><span id="line-405">                ${Diag_HIGH2}  (160-179)  ${Diag_HIGH2_SystolicPercent}   (100-109) ${Diag_HIGH2_DiastolicPercent}</span>
-<span class="source-line-no">406</span><span id="line-406">                ${Diag_HIGH3}  (&gt;= 180)   ${Diag_HIGH3_SystolicPercent}   (&gt;= 110)  ${Diag_HIGH3_DiastolicPercent}</span>
-<span class="source-line-no">407</span><span id="line-407">                </span>
-<span class="source-line-no">408</span><span id="line-408">                ${Disclaimer}</span>
-<span class="source-line-no">409</span><span id="line-409">                """</span>
-<span class="source-line-no">410</span><span id="line-410">        );</span>
-<span class="source-line-no">411</span><span id="line-411">        writeString( targetFile, template.replaceVariable( contents ), UTF8 );</span>
-<span class="source-line-no">412</span><span id="line-412">    }   //  generateTextReport()</span>
-<span class="source-line-no">413</span><span id="line-413">}</span>
-<span class="source-line-no">414</span><span id="line-414">//  class SimpleReport</span>
-<span class="source-line-no">415</span><span id="line-415"></span>
-<span class="source-line-no">416</span><span id="line-416">/*</span>
-<span class="source-line-no">417</span><span id="line-417"> *  End of File</span>
-<span class="source-line-no">418</span><span id="line-418"> */</span>
+<span class="source-line-no">382</span><span id="line-382">                ${DistributionCaption}</span>
+<span class="source-line-no">383</span><span id="line-383">                ${Diag_Filler}  ${DistributionColumn1Header} ${DistributionColumn2Header}</span>
+<span class="source-line-no">384</span><span id="line-384">                ${Diag_LOW}  (&lt; 105)    ${Diag_LOW_SystolicPercent}   (&lt; 65)    ${Diag_LOW_DiastolicPercent}</span>
+<span class="source-line-no">385</span><span id="line-385">                ${Diag_OPTIMAL}  (105-119)  ${Diag_OPTIMAL_SystolicPercent}   (65-79)   ${Diag_OPTIMAL_DiastolicPercent}</span>
+<span class="source-line-no">386</span><span id="line-386">                ${Diag_NORMAL}  (120-129)  ${Diag_NORMAL_SystolicPercent}   (80-84)   ${Diag_NORMAL_DiastolicPercent}</span>
+<span class="source-line-no">387</span><span id="line-387">                ${Diag_NORMAL_HIGH}  (130-139)  ${Diag_NORMAL_HIGH_SystolicPercent}   (85-89)   ${Diag_NORMAL_HIGH_DiastolicPercent}</span>
+<span class="source-line-no">388</span><span id="line-388">                ${Diag_HIGH1}  (140-159)  ${Diag_HIGH1_SystolicPercent}   (90-99)   ${Diag_HIGH1_DiastolicPercent}</span>
+<span class="source-line-no">389</span><span id="line-389">                ${Diag_HIGH2}  (160-179)  ${Diag_HIGH2_SystolicPercent}   (100-109) ${Diag_HIGH2_DiastolicPercent}</span>
+<span class="source-line-no">390</span><span id="line-390">                ${Diag_HIGH3}  (&gt;= 180)   ${Diag_HIGH3_SystolicPercent}   (&gt;= 110)  ${Diag_HIGH3_DiastolicPercent}</span>
+<span class="source-line-no">391</span><span id="line-391">                </span>
+<span class="source-line-no">392</span><span id="line-392">                ${Disclaimer}</span>
+<span class="source-line-no">393</span><span id="line-393">                """</span>
+<span class="source-line-no">394</span><span id="line-394">        );</span>
+<span class="source-line-no">395</span><span id="line-395">        writeString( targetFile, template.replaceVariable( contents ), UTF8 );</span>
+<span class="source-line-no">396</span><span id="line-396">    }   //  generateTextReport()</span>
+<span class="source-line-no">397</span><span id="line-397">}</span>
+<span class="source-line-no">398</span><span id="line-398">//  class SimpleReport</span>
+<span class="source-line-no">399</span><span id="line-399"></span>
+<span class="source-line-no">400</span><span id="line-400">/*</span>
+<span class="source-line-no">401</span><span id="line-401"> *  End of File</span>
+<span class="source-line-no">402</span><span id="line-402"> */</span>
 
 
 

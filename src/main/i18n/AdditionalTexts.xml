@@ -17,7 +17,7 @@
   ~  License for the specific language governing permissions and limitations
   ~  under the License.
   -->
-<!-- $Id: AdditionalTexts.xml 125 2022-02-18 22:24:52Z tquadrat $ -->
+<!-- $Id: AdditionalTexts.xml 151 2022-03-15 20:39:31Z tquadrat $ -->
 
 <!DOCTYPE texts SYSTEM "http://dtd.tquadrat.org/AdditionalText.dtd">
 <texts>
@@ -112,6 +112,242 @@
         <translation language="en"><![CDATA[Diastolic Pressure ]]></translation>
     </text>
     <text key='org.tquadrat.bloodpressure.report.SimpleReport.TXT_Disclaimer'>
+        <description>The disclaimer regarding the assessments.</description>
+        <translation language="de"><![CDATA[Die Einstufung geschieht auf der Basis der Normalwerttabelle der WHO und\n
+der Hochdruckliga. Sie stellt keine medizinische Diagnose dar, sondern liefert\n
+nur Richtwerte.\n
+Es gibt keine Normwerte für niedrigen Blutdruck, aber niedrige Werte sollten\n
+auch nicht als "Optimal" bezeichnet werden.]]></translation>
+        <translation language="en"><![CDATA[The assessment is based on the table provided by the WHO; it is not a\n
+medical diagnosis.\n
+There is no strict definition for a low blood pressure, but low values should\n
+not be seen as optimal.]]></translation>
+    </text>
+
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_Headline'>
+        <description>The report's headline</description>
+        <translation language="de"><![CDATA[Blutdruck-Statistik]]></translation>
+        <translation language="en"><![CDATA[Blood Pressure Statistics]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_Name'>
+        <description>The caption for the field showing the name and birthdate of the person whose bloodpressure data are shown in the report.</description>
+        <translation language="de"><![CDATA[für]]></translation>
+        <translation language="en"><![CDATA[for]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_Created'>
+        <description>The caption for the field showing the creation date of the report.</description>
+        <translation language="de"><![CDATA[erstellt am]]></translation>
+        <translation language="en"><![CDATA[created at]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_FirstDay'>
+        <description>The caption for the field showing the first day covered by the report. Length is important!</description>
+        <translation language="de"><![CDATA[Tag der ersten Messung       ]]></translation>
+        <translation language="en"><![CDATA[Day of first measuring       ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_LastDay'>
+        <description>The caption for the field showing the last day covered by the report. Length is important!</description>
+        <translation language="de"><![CDATA[Tag der letzten Messung      ]]></translation>
+        <translation language="en"><![CDATA[Day of last measuring        ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_TotalCount'>
+        <description>The caption for the field showing the total count of measuring. Length is important!</description>
+        <translation language="de"><![CDATA[Gesamtanzahl der Messungen   ]]></translation>
+        <translation language="en"><![CDATA[Total number of measuring    ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_DayCount'>
+        <description>The caption for the field showing the count of day. Length is important!</description>
+        <translation language="de"><![CDATA[Anzahl Tage mit Messungen    ]]></translation>
+        <translation language="en"><![CDATA[Number of days with measuring]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_TotalDays'>
+        <description>The caption for the field showing the count of day. Length is important!</description>
+        <translation language="de"><![CDATA[Anzahl Tage gesamt           ]]></translation>
+        <translation language="en"><![CDATA[Total number of days         ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_TableHeader1'>
+        <description>The header for the first value table column.</description>
+        <translation language="de"><![CDATA[Systolisch]]></translation>
+        <translation language="en"><![CDATA[Systolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_TableHeader2'>
+        <description>The header for the second value table column.</description>
+        <translation language="de"><![CDATA[Diastolisch]]></translation>
+        <translation language="en"><![CDATA[Diastolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_TableHeader3'>
+        <description>The header for the third value table column.</description>
+        <translation language="de"><![CDATA[Pulsdruck]]></translation>
+        <translation language="en"><![CDATA[Pulse Pressure]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_TableHeader4'>
+        <description>The header for the fourth value table column.</description>
+        <translation language="de"><![CDATA[Einstufung ]]></translation>
+        <translation language="en"><![CDATA[Assessment]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_Average'>
+        <description>The caption for the line showing the averages. Length is important!</description>
+        <translation language="de"><![CDATA[Durchschnitt                 ]]></translation>
+        <translation language="en"><![CDATA[Average                      ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_WeightedAverage'>
+        <description>The caption for the line showing the weighted averages. Length is important!</description>
+        <translation language="de"><![CDATA[Gewichteter Durchschnitt     ]]></translation>
+        <translation language="en"><![CDATA[Weighted Average             ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_Median'>
+        <description>The caption for the line showing the median values. Length is important!</description>
+        <translation language="de"><![CDATA[Median                       ]]></translation>
+        <translation language="en"><![CDATA[Median                       ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_Distribution'>
+        <description>The caption for the distribution table.</description>
+        <translation language="de"><![CDATA[Verteilung auf Normwerte]]></translation>
+        <translation language="en"><![CDATA[Distribution]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_DistributionColumn1'>
+        <description>The caption for first column of the distribution table.</description>
+        <translation language="de"><![CDATA[Systolischer Druck ]]></translation>
+        <translation language="en"><![CDATA[Systolic Pressure  ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.CAPTION_DistributionColumn2'>
+        <description>The caption for second column of the distribution table.</description>
+        <translation language="de"><![CDATA[Diastolischer Druck]]></translation>
+        <translation language="en"><![CDATA[Diastolic Pressure ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_Systolic'>
+        <description>The legend for the chart/systolic curve.</description>
+        <translation language="de"><![CDATA[Systolisch]]></translation>
+        <translation language="en"><![CDATA[Systolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_Diastolic'>
+        <description>The legend for the chart/diastolic curve.</description>
+        <translation language="de"><![CDATA[Diastolisch]]></translation>
+        <translation language="en"><![CDATA[Diastolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.StandardReport.TXT_Disclaimer'>
+        <description>The disclaimer regarding the assessments.</description>
+        <translation language="de"><![CDATA[Die Einstufung geschieht auf der Basis der Normalwerttabelle der WHO und\n
+der Hochdruckliga. Sie stellt keine medizinische Diagnose dar, sondern liefert\n
+nur Richtwerte.\n
+Es gibt keine Normwerte für niedrigen Blutdruck, aber niedrige Werte sollten\n
+auch nicht als "Optimal" bezeichnet werden.]]></translation>
+        <translation language="en"><![CDATA[The assessment is based on the table provided by the WHO; it is not a\n
+medical diagnosis.\n
+There is no strict definition for a low blood pressure, but low values should\n
+not be seen as optimal.]]></translation>
+    </text>
+
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_Headline'>
+        <description>The report's headline</description>
+        <translation language="de"><![CDATA[Blutdruck-Statistik]]></translation>
+        <translation language="en"><![CDATA[Blood Pressure Statistics]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_Name'>
+        <description>The caption for the field showing the name and birthdate of the person whose bloodpressure data are shown in the report.</description>
+        <translation language="de"><![CDATA[für]]></translation>
+        <translation language="en"><![CDATA[for]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_Created'>
+        <description>The caption for the field showing the creation date of the report.</description>
+        <translation language="de"><![CDATA[erstellt am]]></translation>
+        <translation language="en"><![CDATA[created at]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_CurrentQuarter'>
+        <description>The text "current quarter"</description>
+        <translation language="de"><![CDATA[Aktuelles Quartal]]></translation>
+        <translation language="en"><![CDATA[Current Quarter]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_PreviousQuarter'>
+        <description>The text "previous quarter"</description>
+        <translation language="de"><![CDATA[Vorquartal]]></translation>
+        <translation language="en"><![CDATA[Previous Quarter]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_FirstDay'>
+        <description>The caption for the field showing the first day covered by the report.</description>
+        <translation language="de"><![CDATA[Tag der ersten Messung]]></translation>
+        <translation language="en"><![CDATA[Day of first measuring]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_LastDay'>
+        <description>The caption for the field showing the last day covered by the report. Length is important!</description>
+        <translation language="de"><![CDATA[Tag der letzten Messung]]></translation>
+        <translation language="en"><![CDATA[Day of last measuring]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_TotalCount'>
+        <description>The caption for the field showing the total count of measuring. Length is important!</description>
+        <translation language="de"><![CDATA[Gesamtanzahl der Messungen]]></translation>
+        <translation language="en"><![CDATA[Total number of measuring]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_DayCount'>
+        <description>The caption for the field showing the count of day. Length is important!</description>
+        <translation language="de"><![CDATA[Anzahl Tage mit Messungen    ]]></translation>
+        <translation language="en"><![CDATA[Number of days with measuring]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_TotalDays'>
+        <description>The caption for the field showing the count of day. Length is important!</description>
+        <translation language="de"><![CDATA[Anzahl Tage gesamt           ]]></translation>
+        <translation language="en"><![CDATA[Total number of days         ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_TableHeader1'>
+        <description>The header for the first value table column.</description>
+        <translation language="de"><![CDATA[Systolisch]]></translation>
+        <translation language="en"><![CDATA[Systolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_TableHeader2'>
+        <description>The header for the second value table column.</description>
+        <translation language="de"><![CDATA[Diastolisch]]></translation>
+        <translation language="en"><![CDATA[Diastolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_TableHeader3'>
+        <description>The header for the third value table column.</description>
+        <translation language="de"><![CDATA[Pulsdruck]]></translation>
+        <translation language="en"><![CDATA[Pulse Pressure]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_TableHeader4'>
+        <description>The header for the fourth value table column.</description>
+        <translation language="de"><![CDATA[Einstufung ]]></translation>
+        <translation language="en"><![CDATA[Assessment]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_Average'>
+        <description>The caption for the line showing the averages. Length is important!</description>
+        <translation language="de"><![CDATA[Durchschnitt                 ]]></translation>
+        <translation language="en"><![CDATA[Average                      ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_WeightedAverage'>
+        <description>The caption for the line showing the weighted averages. Length is important!</description>
+        <translation language="de"><![CDATA[Gewichteter Durchschnitt     ]]></translation>
+        <translation language="en"><![CDATA[Weighted Average             ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_Median'>
+        <description>The caption for the line showing the median values. Length is important!</description>
+        <translation language="de"><![CDATA[Median                       ]]></translation>
+        <translation language="en"><![CDATA[Median                       ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_Distribution'>
+        <description>The caption for the distribution table.</description>
+        <translation language="de"><![CDATA[Verteilung auf Normwerte]]></translation>
+        <translation language="en"><![CDATA[Distribution]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_DistributionColumn1'>
+        <description>The caption for first column of the distribution table.</description>
+        <translation language="de"><![CDATA[Systolischer Druck ]]></translation>
+        <translation language="en"><![CDATA[Systolic Pressure  ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.CAPTION_DistributionColumn2'>
+        <description>The caption for second column of the distribution table.</description>
+        <translation language="de"><![CDATA[Diastolischer Druck]]></translation>
+        <translation language="en"><![CDATA[Diastolic Pressure ]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_Systolic'>
+        <description>The legend for the chart/systolic curve.</description>
+        <translation language="de"><![CDATA[Systolisch]]></translation>
+        <translation language="en"><![CDATA[Systolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_Diastolic'>
+        <description>The legend for the chart/diastolic curve.</description>
+        <translation language="de"><![CDATA[Diastolisch]]></translation>
+        <translation language="en"><![CDATA[Diastolic]]></translation>
+    </text>
+    <text key='org.tquadrat.bloodpressure.report.CompareReport.TXT_Disclaimer'>
         <description>The disclaimer regarding the assessments.</description>
         <translation language="de"><![CDATA[Die Einstufung geschieht auf der Basis der Normalwerttabelle der WHO und\n
 der Hochdruckliga. Sie stellt keine medizinische Diagnose dar, sondern liefert\n
